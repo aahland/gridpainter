@@ -1,5 +1,4 @@
 const socket =io();
-
 //Make grid 
 for (i=1;i<=15;i++){
     document.getElementById("row1").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
@@ -49,18 +48,20 @@ for (i=211;i<=225;i++){
 //function  coloring the grid  
 document.getElementById("gridPainter").addEventListener("click", function(evt){
     console.log(evt.target.id);
-    let box=evt.target.id
-    let positionColor = {"id":box, "paint":color};
+    let box=evt.target.id;
+   
+    let playerColor=localStorage.getItem("playerColor")
+    let positionColor = {"id":box, "paint":playerColor};
     console.log(positionColor);
     //document.getElementById(box).style.backgroundColor="blue"
-    if(document.getElementById(box).style.backgroundColor.match(color)){
-        console.log(color);
+    if(document.getElementById(box).style.backgroundColor.match(playerColor)){
+        console.log(playerColor);
         let backColor="white";
         console.log(backColor);
         document.getElementById(box).style.backgroundColor=backColor;
         socket.emit("boxColor",{"id":box, "paint":backColor}); 
     }else{
-            document.getElementById(box).style.backgroundColor=color;
+            document.getElementById(box).style.backgroundColor=playerColor;
             socket.emit("boxColor",positionColor); 
     }        
 });
@@ -80,6 +81,7 @@ document.getElementById("color").insertAdjacentHTML("afterbegin",
 document.getElementById("color").addEventListener("click",function(evt){
     color=evt.target.id ;
         console.log(evt.target.id);
+        localStorage.setItem("playerColor", color);
 })
 
 
