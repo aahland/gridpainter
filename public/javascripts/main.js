@@ -1,4 +1,11 @@
 const socket =io();
+//save name in localstorage and get it from localstorage ( after login part must be deleted )
+localStorage.setItem("playerName", "Sara");
+
+let playerName=localStorage.getItem("playerName")
+
+//showing name of layer
+document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h1>Player name:${playerName}</h1>`)
 //Make grid 
 for (i=1;i<=15;i++){
     document.getElementById("row1").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
@@ -53,7 +60,7 @@ document.getElementById("gridPainter").addEventListener("click", function(evt){
     let playerColor=localStorage.getItem("playerColor")
     let positionColor = {"id":box, "paint":playerColor};
     console.log(positionColor);
-    //document.getElementById(box).style.backgroundColor="blue"
+    
     if(document.getElementById(box).style.backgroundColor.match(playerColor)){
         console.log(playerColor);
         let backColor="white";
@@ -77,11 +84,17 @@ document.getElementById("color").insertAdjacentHTML("afterbegin",
     <li id="yellow" style="background-color: yellow;"></li>
     <li id="blue" style="background-color: blue;"></li>`)
 
-// selecting colors on click on color box on top of the page 
+// selecting colors on click on color box on top of the page (after login part must be deleted )
 document.getElementById("color").addEventListener("click",function(evt){
     color=evt.target.id ;
         console.log(evt.target.id);
-        localStorage.setItem("playerColor", color);
+       localStorage.setItem("playerColor", color);
+       let playerColor=localStorage.getItem("playerColor")
+        //console.log(playerColor);
+        document.getElementById("playerColor").innerHTML="";
+        document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div id=${playerColor} style="background-color: ${playerColor};"></div>`)
+       
+
 })
 
 

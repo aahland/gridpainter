@@ -6,7 +6,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-var app = express();
+ var app = express();
+// const MongoClient=require("mongodb").MongoClient;
+// MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.w88ba.mongodb.net/GridPainter?retryWrites=true&w=majority",{
+    
+//     useUnifiedTopology:true 
+// })
 const server=require("http").Server(app);
 const io=require("socket.io")(server)
  //listen on every connection
