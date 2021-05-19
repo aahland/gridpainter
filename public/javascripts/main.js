@@ -1,3 +1,4 @@
+
 const socket =io();
 //save name in localstorage and get it from localstorage ( after login part must be deleted )
 localStorage.setItem("playerName", "Sara");
@@ -52,13 +53,15 @@ for (i=196;i<=210;i++){
 for (i=211;i<=225;i++){
     document.getElementById("row15").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
 }
+
+
 //function  coloring the grid  
 document.getElementById("gridPainter").addEventListener("click", function(evt){
     console.log(evt.target.id);
     let box=evt.target.id;
    
     let playerColor=localStorage.getItem("playerColor")
-    let positionColor = {"id":box, "paint":playerColor};
+    let positionColor = {"boxName":box, "boxColor":playerColor};
     console.log(positionColor);
     
     if(document.getElementById(box).style.backgroundColor.match(playerColor)){
@@ -66,23 +69,49 @@ document.getElementById("gridPainter").addEventListener("click", function(evt){
         let backColor="white";
         console.log(backColor);
         document.getElementById(box).style.backgroundColor=backColor;
-        socket.emit("boxColor",{"id":box, "paint":backColor}); 
+        socket.emit("boxColor",{"boxName":box, "boxColor":backColor}); 
     }else{
             document.getElementById(box).style.backgroundColor=playerColor;
             socket.emit("boxColor",positionColor); 
-    }        
+    }   
+    fetch("http://localhost:3000/users/color", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
+    },
+    body: JSON.stringify(positionColor)
+    })
+    .then(res=>res.json())
+    .then(paint=>{
+    console.log("Status",paint.status);
+       
+       
+    });     
 });
 // Receive data  
+// fetch("http://localhost:3000/users")
+//      .then(res=>res.json())
+//     .then(boxes=>{
+//     console.log("boxes info from database",boxes);
+//     for(box in boxes){
+//         document.getElementById(boxes[box].boxName).style.backgroundColor=boxes[box].boxColor
+//     }
+//     })
  socket.on("boxColor",function(boxColor){
-     console.log(boxColor);
-     document.getElementById(boxColor.id).style.backgroundColor=boxColor.paint
+       console.log("boxColor from socket.io:",boxColor);
+     document.getElementById(boxColor.boxName).style.backgroundColor=boxColor.boxColor
+            
+     
  })
 
 // Color box for selecting colors
 document.getElementById("color").insertAdjacentHTML("afterbegin",
-   `<li id="red" style="background-color: red;"></li>
+   `<li id="red" style="background-color:red;"></li>
     <li id="yellow" style="background-color: yellow;"></li>
-    <li id="blue" style="background-color: blue;"></li>`)
+    <li id="blue" style="background-color: blue;"></li>
+    <li id="white" style="background-color:white;"></li>
+    `)
 
 // selecting colors on click on color box on top of the page (after login part must be deleted )
 document.getElementById("color").addEventListener("click",function(evt){
@@ -96,5 +125,3 @@ document.getElementById("color").addEventListener("click",function(evt){
        
 
 })
-
-
