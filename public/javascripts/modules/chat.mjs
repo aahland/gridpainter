@@ -60,13 +60,13 @@ export function sendMessage(){
 socket.on("chat message", function(msg){
     let messages = document.getElementById("messages");
     
-    if (localStorage.getItem("playerName") === msg.name){ 
+    if ((localStorage.getItem("playerName") === msg.name)&&(localStorage.getItem("playerColor") === msg.color)){ 
       console.log("outgoing message");
       console.log(localStorage.getItem("playerName"), msg);
       messages.insertAdjacentHTML("beforeend", "<li style='margin-right:18vw'>" + msg.message + ""+" "+"<i> <p id='chatname' style='color:lightpink;'</p> -  " + msg.name + "</i></li>")
       messages.scrollTop = messages.scrollHeight;
 
-    } else if (localStorage.getItem("playerName") != msg.name) {
+    } else if ((localStorage.getItem("playerName") != msg.name) || (localStorage.getItem("playerColor") != msg.color)) {
     console.log("incoming message");
     console.log(localStorage.getItem("playerName"), msg);
     messages.insertAdjacentHTML("beforeend", "<li style='margin-left:18vw'>" + msg.message + ""+" "+"<i> <p id='chatname'style='color:lightblue;'</p> -  " + msg.name + "</i></li>")
