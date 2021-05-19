@@ -28,6 +28,10 @@ const io=require("socket.io")(server)
         console.log("boxColor:",boxColor);
         io.emit("boxColor",boxColor)
     });
+    socket.on("selectedColor",function(selectedColor){
+        console.log("selectedColor:",selectedColor);
+        io.emit("selectedColor",selectedColor)
+    });
     socket.on("chat message", function(msg){
         console.log("msg", msg);
         io.emit("chat message", msg);
