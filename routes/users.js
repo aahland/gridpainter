@@ -28,10 +28,12 @@ router.post("/color", function(req, res){
   req.app.locals.db.collection("grid").find( {"boxName":findBox.boxName} ).toArray()
   .then(coloredBox => {
     console.log("coloredBox",coloredBox);
-    req.app.locals.db.collection("grid").insertOne(req.body)
+    //req.app.locals.db.collection("grid").insertOne(req.body)
+    //req.app.locals.db.collection("grid").deleteOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
 
-   // req.app.locals.db.collection("grid").updateOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
+    req.app.locals.db.collection("grid").updateOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
       .then(result=>{
+       
         console.log(result);
   })  
   res.json({"status":"color  changed"})

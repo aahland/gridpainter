@@ -1,22 +1,20 @@
 
 
-export function makeGridFunc(){
 const socket =io();
 //save name in localstorage and get it from localstorage ( after login part must be deleted )
-localStorage.setItem("playerName", "Sara");
 
 let playerName=localStorage.getItem("playerName")
-
-//showing name of layer
-document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h1>Player name:${playerName}</h1>`)
+//make Grid box 
+export function makeGridFunc(){
 //Make grid 
+let i 
 for (i=1;i<=15;i++){
     document.getElementById("row1").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
 }
-for (i=16;i<=30;i++){
+for ( i=16;i<=30;i++){
     document.getElementById("row2").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
 }
-for (i=31;i<=45;i++){
+for ( i=31;i<=45;i++){
     document.getElementById("row3").insertAdjacentHTML("beforeend",`<div id=box${i}>${i}<div>`)
 }
 for (i=46;i<=60;i++){
@@ -57,8 +55,14 @@ for (i=211;i<=225;i++){
 }
 }
 
-//function  coloring the grid  
-document.getElementById("gridPainter").addEventListener("click", function(evt){
+//showing name of player
+export function ShowPlayerName(){
+    localStorage.setItem("playerName", "Sara");
+    document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h1>Player name:${playerName}</h1>`)
+}
+//function  coloring the grid 
+export function gridColoringFunc(){
+   document.getElementById("gridPainter").addEventListener("click", function(evt){
     console.log(evt.target.id);
     let box=evt.target.id;
    
@@ -90,7 +94,9 @@ document.getElementById("gridPainter").addEventListener("click", function(evt){
        
        
     });     
-});
+}); 
+} 
+
 // Receive data  
 // fetch("http://localhost:3000/users")
 //      .then(res=>res.json())
@@ -107,24 +113,29 @@ document.getElementById("gridPainter").addEventListener("click", function(evt){
      
  })
 
-// Color box for selecting colors
-document.getElementById("color").insertAdjacentHTML("afterbegin",
-   `<li id="red" style="background-color:red;"></li>
-    <li id="yellow" style="background-color: yellow;"></li>
-    <li id="blue" style="background-color: blue;"></li>
-    <li id="white" style="background-color:white;"></li>
-    `)
-
 // selecting colors on click on color box on top of the page (after login part must be deleted )
-document.getElementById("color").addEventListener("click",function(evt){
-    color=evt.target.id ;
-        console.log(evt.target.id);
-       localStorage.setItem("playerColor", color);
-       let playerColor=localStorage.getItem("playerColor")
-        //console.log(playerColor);
-        document.getElementById("playerColor").innerHTML="";
-        document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div id=${playerColor} style="background-color: ${playerColor};"></div>`)
-       
+export function setColor(){
 
-})
+    document.getElementById("color").insertAdjacentHTML("afterbegin",
+`<li id="red" style="background-color:red;"></li>
+ <li id="yellow" style="background-color: yellow;"></li>
+ <li id="blue" style="background-color: blue;"></li>
+ <li id="white" style="background-color:white;"></li>
+ `)
+ document.getElementById("color").addEventListener("click",function(evt){
+     
+      let color=evt.target.id ;
+         console.log(color);
+        localStorage.setItem("playerColor", color);
+        let playerColor=localStorage.getItem("playerColor")
+         //console.log(playerColor);
+         document.getElementById("playerColor").innerHTML="";
+         document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div id=${playerColor} style="background-color: ${playerColor};"></div>`)
+ })
+}
+
+
+
+   
+
 
