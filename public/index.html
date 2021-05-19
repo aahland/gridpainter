@@ -4,41 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <title>Grid Painter Login</title>
+    <script type="module" src="javascripts/main.js"></script>
 </head>
 <body>
-    <div id="playerColor"></div>
-    <div id="playerName"></div>
-    <ul id="color">
-      
-    </ul><br><br>
-    <div id="container">
-        <div id="gridPainter">
-            <div id="row1"></div>
-            <div id="row2"></div>
-            <div id="row3"></div>
-            <div id="row4"></div>
-            <div id="row5"></div>
-            <div id="row6"></div>
-            <div id="row7"></div>
-            <div id="row8"></div>
-            <div id="row9"></div>
-            <div id="row10"></div>
-            <div id="row11"></div>
-            <div id="row12"></div>
-            <div id="row13"></div>
-            <div id="row14"></div>
-            <div id="row15"></div>
-         
+    <header>
+        <h1>Grid Painter</h1>
+    </header>
+    <main>
+        <div id="loginWrapper">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="Username" />
+            <div id="colorWrapper"></div>
+            <button id="loginBtn">Play game</button>
         </div>
-        <div id="picChat">
-            <div id="pic">picture</div>
-            <div id="chatBox">chat box</div>
-        </div>
-   </div>
-   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/query-string/7.0.0/index.js" integrity="sha512-rLJ0/GVIutz/QyV1c1DBsF/Xode228cCr9gW5o+Glz8pk3EjqqJxIIggU9li+VtHM28YCRm/rBLK3gUWkDSVjA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-   <script src="socket.io/socket.io.js"></script>
-   <script type="module" src="javascripts/main.js"></script>
+    </main>
+    <script src="socket.io/socket.io.js"></script>
 </body>
 </html>

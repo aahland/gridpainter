@@ -1,13 +1,13 @@
-import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc , setColor} from './modules/grid.mjs';
+// import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc , setColor} from './modules/grid.mjs';
 
-//Selecting color that must be deleted after login section 
-setColor()
+// //Selecting color that must be deleted after login section 
+// setColor()
 
-//make Grid box 
-makeGridFunc();
-//showing name of player
+// //make Grid box 
+// makeGridFunc();
+// //showing name of player
 
-ShowPlayerName();
+// ShowPlayerName();
 
-// coloring the grid 
-gridColoringFunc();
+// // coloring the grid 
+// gridColoringFunc();
