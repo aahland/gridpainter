@@ -27,7 +27,11 @@ const io=require("socket.io")(server)
     socket.on("boxColor",function(boxColor){
         console.log("boxColor:",boxColor);
         io.emit("boxColor",boxColor)
-    })
+    });
+    socket.on("chat message", function(msg){
+        console.log("msg", msg);
+        io.emit("chat message", msg);
+    });
 
 })
 app.use(logger('dev'));
