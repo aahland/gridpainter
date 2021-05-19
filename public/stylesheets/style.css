@@ -1,0 +1,42 @@
+#gridPainter{
+    border: 2px black solid;
+    width: 600px;
+    height: 630px;
+    margin-right: 100px;
+}
+/* Rows of grid */
+#row1 ,#row2 ,#row3 ,#row4 ,#row5 ,#row6 ,#row7 ,#row8 ,#row9 ,#row10,#row11 ,#row12 ,#row13 ,#row14,#row15    {
+    display: flex;
+    flex-direction:row;   
+}
+/* Boxes of grid */
+#box1 ,#box2 ,#box3 ,#box4 , #box5 ,#box6 ,#box7 ,#box8 ,#box9 , #box10 , #box11 ,#box12 ,#box13 ,#box14 , #box15 , #box16 ,#box17 ,#box18 ,#box19 , #box20 , #box21 ,#box22 ,#box23 ,#box24 , #box25 , #box26 ,#box27 ,#box28 ,#box29 , #box30 , #box31 ,#box32 ,#box33 ,#box34 , #box35, #box36 ,#box37 ,#box38 ,#box39 , #box40, #box41 ,#box42 ,#box43 ,#box44 , #box45, #box46 ,#box47 ,#box48 ,#box49 , #box50 , #box51 ,#box52 ,#box53 ,#box54 , #box55 , #box56 ,#box57 ,#box58 ,#box59 , #box60,#box61 ,#box62 ,#box63 ,#box64 , #box65, #box66 ,#box67 ,#box68 ,#box69 , #box70, #box71 ,#box72 ,#box73 ,#box74 , #box75 , #box76 ,#box77 ,#box78 ,#box79 , #box80 , #box81 ,#box82 ,#box83 ,#box84 , #box85 , #box86 ,#box87 ,#box88 ,#box89 , #box90 , #box91 ,#box92 ,#box93 ,#box94 , #box95 ,#box96 ,#box97 ,#box98 ,#box99 , #box100 , #box101 ,#box102 ,#box103 ,#box104 , #box105 ,#box106 ,#box107 ,#box108 ,#box109 , #box110 , #box111 ,#box112 ,#box113 ,#box114 , #box115 , #box116 ,#box117 ,#box118 ,#box119 , #box120 , #box121 ,#box122 ,#box123 ,#box124 , #box125 , #box126 ,#box127 ,#box128 ,#box129 , #box130 , #box131 ,#box132 ,#box133 ,#box134 , #box135 , #box136 ,#box137 ,#box138 ,#box139 , #box140 , #box141 ,#box142 ,#box143 ,#box144 , #box145 , #box146 ,#box147 ,#box148 ,#box149 , #box150 , #box151 ,#box152 ,#box153 ,#box154 , #box155 ,#box156 ,#box157 ,#box158 ,#box159 , #box160 , #box161 ,#box162 ,#box163 ,#box164 , #box165 , #box166 ,#box167 ,#box168 ,#box169 , #box170 , #box171 ,#box172 ,#box173 ,#box174 , #box175 , #box176 ,#box177 ,#box178 ,#box179 , #box180 , #box181 ,#box182 ,#box183 ,#box184 , #box185, #box186 ,#box187 ,#box188 ,#box189 , #box190, #box191 ,#box192 ,#box193 ,#box194 , #box195, #box196 ,#box197 ,#box198 ,#box199 , #box200 ,#box201 ,#box202 ,#box203 ,#box204 , #box205 ,#box206 ,#box207 ,#box208 ,#box209 , #box210 , #box211 ,#box212 ,#box213 ,#box214 , #box215 , #box216 ,#box217 ,#box218 ,#box219 , #box220 , #box221 ,#box222 ,#box223 ,#box224 , #box225   {
+    width:40px;
+    height :40px;
+    border:1px solid rgb(109, 109, 109);  
+}
+#container{
+    display: flex;
+    flex-direction:row;  
+}
+#picChat{
+    display: flex;
+    flex-direction:column;  
+}
+#pic, #chatBox{
+    width:500px;
+    height :250px;
+    border:1px solid rgb(109, 109, 109);  
+    margin-bottom: 100px;
+}
+#color{
+    display: flex;
+    flex-direction:row;  
+}
+#red , #yellow , #blue{
+    width:40px;
+    height :40px;
+    border:1px solid rgb(109, 109, 109); 
+    margin-right: 20px; 
+    list-style: none;
+}
