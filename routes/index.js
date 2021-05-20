@@ -10,7 +10,7 @@ router.get('/pickColor', function (req, res) {
 
 // Posts color from body and removes/adds to color array
 router.post('/pickColor', function (req, res) {
-    res.send(updateColors(req.body.color));
+    res.send(updateColors(req.body.color), sendColors());
 })
 
 module.exports = router;
