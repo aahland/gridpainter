@@ -96,7 +96,7 @@ export function gridColoringFunc(){
     });     
 }); 
 } 
-// reading data from database for other players to which box is colored and realtime app 
+// reading data from database for other players to see which box is colored and realtime app 
 
     fetch("http://localhost:3000/users")
     .then(res=>res.json())
