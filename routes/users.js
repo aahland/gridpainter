@@ -8,8 +8,6 @@ router.get('/', function(req, res, next) {
 res.send(results);
 req.app.locals.db.collection("grid").insertOne(req.body)
   .then(result=>{
-  res.json({"added":"ok"})
-// console.log(result);
   })
  res.redirect("/");
 
@@ -33,8 +31,7 @@ router.post("/color", function(req, res){
 
     req.app.locals.db.collection("grid").updateOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
       .then(result=>{
-       
-        //console.log(result);
+       //console.log(result);
   })  
   res.json({"status":"color  changed"})
  
