@@ -34,7 +34,7 @@ router.post("/color", function(req, res){
     req.app.locals.db.collection("grid").updateOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
       .then(result=>{
        
-        console.log(result);
+        //console.log(result);
   })  
   res.json({"status":"color  changed"})
  

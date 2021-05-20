@@ -106,10 +106,25 @@ export function gridColoringFunc(){
 //         document.getElementById(boxes[box].boxName).style.backgroundColor=boxes[box].boxColor
 //     }
 //     })
- socket.on("boxColor",function(boxColor){
-       console.log("boxColor from socket.io:",boxColor);
-     document.getElementById(boxColor.boxName).style.backgroundColor=boxColor.boxColor 
- })
+
+     fetch("http://localhost:3000/users")
+     .then(res=>res.json())
+     .then(boxes=>{
+         for(let box in boxes){
+                     document.getElementById(boxes[box].boxName).style.backgroundColor=boxes[box].boxColor 
+
+         }
+     })   
+         socket.on("boxColor",function(boxColor){
+            console.log("boxColor from socket.io:",boxColor);
+            document.getElementById(boxColor.boxName).style.backgroundColor=boxColor.boxColor 
+        })
+        
+     
+     
+        
+      
+ 
  socket.on("selectedColor",function(selectedColor){
    
   document.getElementById(selectedColor.color).style.display="none" 

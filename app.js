@@ -11,6 +11,7 @@ const MongoClient=require("mongodb").MongoClient;
 MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.w88ba.mongodb.net/db?retryWrites=true&w=majority",{
     useUnifiedTopology:true 
 })
+
 .then(client=>{
     console.log("Database  is conected");
     const db =client.db("db");
