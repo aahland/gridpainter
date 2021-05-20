@@ -63,14 +63,14 @@ socket.on("chat message", function(msg){
     if ((localStorage.getItem("playerName") === msg.name)&&(localStorage.getItem("playerColor") === msg.color)){ 
       console.log("outgoing message");
       console.log(localStorage.getItem("playerName"), msg);
-      messages.insertAdjacentHTML("beforeend", "<li style='margin-right:18vw'>" + msg.message + ""+" "+"<i> <p id='chatname' style='color:lightpink;'</p> -  " + msg.name + "</i></li>")
-      messages.scrollTop = messages.scrollHeight;
+      messages.insertAdjacentHTML("beforeend", "<li style='margin-right:18vw'>" + msg.name +":"+"<p style='margin-top:0vh'><i>"+"- "+msg.message+"</i></p></li>")
+      chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
     } else if ((localStorage.getItem("playerName") != msg.name) || (localStorage.getItem("playerColor") != msg.color)) {
     console.log("incoming message");
     console.log(localStorage.getItem("playerName"), msg);
-    messages.insertAdjacentHTML("beforeend", "<li style='margin-left:18vw'>" + msg.message + ""+" "+"<i> <p id='chatname'style='color:lightblue;'</p> -  " + msg.name + "</i></li>")
-      messages.scrollTop = messages.scrollHeight;
+    messages.insertAdjacentHTML("beforeend", "<li style='margin-left:18vw'>" + msg.name +":"+"<p style='margin-top:0vh'><i>"+"- "+msg.message+"</i></p></li>")
+      chatDisplay.scrollTop = chatDisplay.scrollHeight;
     }
   })
 

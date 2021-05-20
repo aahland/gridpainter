@@ -40,3 +40,37 @@
     margin-right: 20px; 
     list-style: none;
 }
+
+#chatBox {
+    display: flex;
+    flex-direction: column;
+    background-color: palevioletred;
+    text-align: center;
+}
+
+#chatDisplay {
+    border:2px solid palevioletred;
+    height: 25vh;
+    margin-top: 2vh;
+    overflow: scroll;
+    background-color: white;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+#messages {
+    list-style: none;
+    padding-left: 0;
+}
+
+#messageInput {
+    margin-top: 2vh;
+    margin-right: 1vw;
+}
+
+#chatBox li {
+    text-align: left;
+    background-color: rgba(236, 148, 177, 0.274);
+    padding:2vh;
+
+}
