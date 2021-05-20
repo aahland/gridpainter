@@ -1,14 +1,35 @@
 const socket = io();
 
-socket.on('updateColors', () => {
-    displayColors();
+socket.on('updateColors', (colors) => {
+    writeColors(colors);
 });
 
 // Gets available colors from fetch function
 export default async function displayColors () {
-    const colorPicker = document.getElementById('colorPicker');
-    colorPicker.innerHTML;
     let colors = await getColors();
+    writeColors(colors);
+}
+
+// Fetch function for recieving available color array
+async function getColors () {
+    let url = 'http://localhost:3000/pickColor';
+    let response = await fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    };
+
+    return await response.json();
+}
+
+function writeColors (colors) {
+    const colorPicker = document.getElementById('colorPicker');
+    colorPicker.innerHTML = '';
 
     // Creates a box for every color returned
     for (let color in colors) {
@@ -29,21 +50,4 @@ export default async function displayColors () {
         wrapper.appendChild(input);
         colorPicker.appendChild(wrapper);
     }
-}
-
-// Fetch function for recieving available color array
-async function getColors () {
-    let url = 'http://localhost:3000/pickColor';
-    let response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
-
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    };
-
-    return await response.json();
 }

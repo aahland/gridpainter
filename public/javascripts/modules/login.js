@@ -1,3 +1,5 @@
+const socket = io();
+
 // Gets username and color choice and puts into local storage
 export default function login () {
     const btn = document.getElementById('loginBtn');
@@ -14,6 +16,8 @@ export default function login () {
 
         localStorage.setItem('username', username);
         localStorage.setItem('userColor', color);
+
+        socket.emit('regPlayer', color);
     })
 
     //
