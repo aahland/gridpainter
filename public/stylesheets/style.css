@@ -72,5 +72,14 @@
     text-align: left;
     background-color: rgba(236, 148, 177, 0.274);
     padding:2vh;
+    margin-top:1vh;
+    width: 10vw;
+}
+
+#chatBox li p {
+    font-size: larger;
+    background-color: white;
+    padding: 2vh;
+    text-align: left;
 
 }
