@@ -2,6 +2,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const {
+    updateColors,
+    sendColors,
+    regPlayer,
+    removePlayer
+} = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -20,16 +26,28 @@ const server=require("http").Server(app);
 const io=require("socket.io")(server)
  //listen on every connection
  io.on('connection', (socket) => {
-     console.log("User connected");
+     console.log("User connected!");
     socket.on("disconnect", function(){
         console.log("User disconnected");
+        
+        // Removes player and restores player color
+        removePlayer(socket.id);
+        io.emit('updateColors', sendColors());
     });
     socket.on("boxColor",function(boxColor){
         console.log("boxColor:",boxColor);
         io.emit("boxColor",boxColor)
     })
 
+    // Adds player and color to array
+    // Updates available player colors for all connected users
+    socket.on('regPlayer', color => {
+        regPlayer(socket.id, color);
+        updateColors(color);
+        io.emit('updateColors', sendColors());
+    });
 })
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

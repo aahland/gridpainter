@@ -1,9 +1,16 @@
 var express = require('express');
 var router = express.Router();
+const path = require('path');
+const { updateColors, sendColors } = require('../utils/colors.js');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// Gets available colors from colors array
+router.get('/pickColor', function (req, res) {
+    res.send(sendColors());
+})
+
+// Posts color from body and removes/adds to color array
+router.post('/pickColor', function (req, res) {
+    res.send(updateColors(req.body.color), sendColors());
+})
 
 module.exports = router;
