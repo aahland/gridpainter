@@ -19,6 +19,7 @@ function sendColors () {
     return colors;
 }
 
+// Registers player with socket id and color
 function regPlayer (socket, color) {
     players.push({
         socket: socket,
@@ -27,6 +28,7 @@ function regPlayer (socket, color) {
     console.log(players);
 }
 
+// Removes player using disconnected socket id, and updates colors for other clients
 function removePlayer (socket) {
     for (let player in players) {
         if (players[player].socket === socket) {
@@ -34,6 +36,7 @@ function removePlayer (socket) {
             players.splice(player, 1);
             console.log('Match!');
             updateColors(color);
+            console.log(players);
             return true;
         }
     }

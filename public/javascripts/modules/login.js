@@ -1,3 +1,4 @@
+import loadGrid from './loadGrid.js';
 const socket = io();
 
 // Gets username and color choice and puts into local storage
@@ -18,6 +19,9 @@ export default function login () {
         localStorage.setItem('userColor', color);
 
         socket.emit('regPlayer', color);
+
+        window.location.href = '../game.html';
+        loadGrid();
     })
 
     //

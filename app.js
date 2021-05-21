@@ -32,6 +32,7 @@ const io=require("socket.io")(server)
         
         // Removes player and restores player color
         removePlayer(socket.id);
+        io.emit('updateColors', sendColors());
     });
     socket.on("boxColor",function(boxColor){
         console.log("boxColor:",boxColor);
