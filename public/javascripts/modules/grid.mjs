@@ -96,22 +96,22 @@ export function gridColoringFunc(){
     });     
 }); 
 } 
+// reading data from database for other players to see which box is colored and realtime app 
 
-// Receive data  
-// fetch("http://localhost:3000/users")
-//      .then(res=>res.json())
-//     .then(boxes=>{
-//     console.log("boxes info from database",boxes);
-//     for(box in boxes){
-//         document.getElementById(boxes[box].boxName).style.backgroundColor=boxes[box].boxColor
-//     }
-//     })
- socket.on("boxColor",function(boxColor){
-       console.log("boxColor from socket.io:",boxColor);
-     document.getElementById(boxColor.boxName).style.backgroundColor=boxColor.boxColor
-            
-     
- })
+    fetch("http://localhost:3000/users")
+    .then(res=>res.json())
+    .then(boxes=>{
+        for(let box in boxes){
+                    document.getElementById(boxes[box].boxName).style.backgroundColor=boxes[box].boxColor 
+        }
+    })   
+socket.on("boxColor",function(boxColor){
+    console.log("boxColor from socket.io:",boxColor);
+    document.getElementById(boxColor.boxName).style.backgroundColor=boxColor.boxColor 
+})
+socket.on("selectedColor",function(selectedColor){
+document.getElementById(selectedColor.color).style.display="none" 
+})
 
 // selecting colors on click on color box on top of the page (after login part must be deleted )
 export function setColor(){
@@ -130,7 +130,10 @@ export function setColor(){
         let playerColor=localStorage.getItem("playerColor")
          //console.log(playerColor);
          document.getElementById("playerColor").innerHTML="";
-         document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div id=${playerColor} style="background-color: ${playerColor};"></div>`)
+         document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div style="background-color:${playerColor} ; width: 40px; height :40px"> </div>
+         `)
+         socket.emit("selectedColor",{"color":color}); 
+
  })
 }
 

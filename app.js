@@ -17,6 +17,7 @@ const MongoClient=require("mongodb").MongoClient;
 MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.w88ba.mongodb.net/db?retryWrites=true&w=majority",{
     useUnifiedTopology:true 
 })
+
 .then(client=>{
     console.log("Database  is conected");
     const db =client.db("db");
@@ -37,7 +38,15 @@ const io=require("socket.io")(server)
     socket.on("boxColor",function(boxColor){
         console.log("boxColor:",boxColor);
         io.emit("boxColor",boxColor)
-    })
+    });
+    socket.on("selectedColor",function(selectedColor){
+        console.log("selectedColor:",selectedColor);
+        io.emit("selectedColor",selectedColor)
+    });
+    socket.on("chat message", function(msg){
+        console.log("msg", msg);
+        io.emit("chat message", msg);
+    });
 
     // Adds player and color to array
     // Updates available player colors for all connected users
