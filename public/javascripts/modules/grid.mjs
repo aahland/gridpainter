@@ -114,28 +114,28 @@ document.getElementById(selectedColor.color).style.display="none"
 })
 
 // selecting colors on click on color box on top of the page (after login part must be deleted )
-export function setColor(){
+// export function setColor(){
 
-    document.getElementById("color").insertAdjacentHTML("afterbegin",
-`<li id="red" style="background-color:red;"></li>
- <li id="yellow" style="background-color: yellow;"></li>
- <li id="blue" style="background-color: blue;"></li>
- <li id="white" style="background-color:white;"></li>
- `)
- document.getElementById("color").addEventListener("click",function(evt){
+//     document.getElementById("color").insertAdjacentHTML("afterbegin",
+// `<li id="red" style="background-color:red;"></li>
+//  <li id="yellow" style="background-color: yellow;"></li>
+//  <li id="blue" style="background-color: blue;"></li>
+//  <li id="white" style="background-color:white;"></li>
+//  `)
+//  document.getElementById("color").addEventListener("click",function(evt){
      
-      let color=evt.target.id ;
-         console.log(color);
-        localStorage.setItem("playerColor", color);
-        let playerColor=localStorage.getItem("playerColor")
-         //console.log(playerColor);
-         document.getElementById("playerColor").innerHTML="";
-         document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div style="background-color:${playerColor} ; width: 40px; height :40px"> </div>
-         `)
-         socket.emit("selectedColor",{"color":color}); 
+//       let color=evt.target.id ;
+//          console.log(color);
+//         localStorage.setItem("playerColor", color);
+//         let playerColor=localStorage.getItem("playerColor")
+//          //console.log(playerColor);
+//          document.getElementById("playerColor").innerHTML="";
+//          document.getElementById("playerColor").insertAdjacentHTML("afterbegin",`<h1>Player color:</h1><div style="background-color:${playerColor} ; width: 40px; height :40px"> </div>
+//          `)
+//          socket.emit("selectedColor",{"color":color}); 
 
- })
-}
+//  })
+// }
 
 
 

@@ -15,8 +15,8 @@ export default function login () {
             }
         }
 
-        localStorage.setItem('username', username);
-        localStorage.setItem('userColor', color);
+        localStorage.setItem('playerName', username);
+        localStorage.setItem('playerColor', color);
 
         socket.emit('regPlayer', color);
 

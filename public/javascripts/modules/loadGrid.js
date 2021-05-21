@@ -1,8 +1,8 @@
-import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc , setColor} from './grid.mjs';
+import { makeGridFunc , ShowPlayerName  ,  gridColoringFunc } from './grid.mjs';
 
 export default function loadGrid () {
     //Selecting color that must be deleted after login section 
-    setColor()
+    // setColor()
 
     //make Grid box 
     makeGridFunc();
