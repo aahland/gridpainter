@@ -67,7 +67,7 @@ socket.on("chat message", function(msg){
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
     console.log("outgoing message");
     console.log(localStorage.getItem("playerName"), msg);
-    messages.insertAdjacentHTML("beforeend", "<li style='margin-right:16vw'>" + msg.name +" ("+ time +") "+"<p style='margin-top:0vh'> "+""+msg.message+"</p></li>")
+    messages.insertAdjacentHTML("beforeend", "<li style='margin-right:10vw'>" + msg.name +" ("+ time +"): " + msg.message + "</li>")
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
   } else if ((localStorage.getItem("playerName") != msg.name) || (localStorage.getItem("playerColor") != msg.color)) {
@@ -75,7 +75,7 @@ socket.on("chat message", function(msg){
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
   console.log("incoming message");
   console.log(localStorage.getItem("playerName"), msg);
-  messages.insertAdjacentHTML("beforeend", "<li style='margin-left:16vw'>" + msg.name +" ("+ time +") "+"<p style='margin-top:0vh'>"+""+msg.message+"</p></li>")
+  messages.insertAdjacentHTML("beforeend", "<li style='margin-left:10vw'>" + msg.name +" ("+ time +"): " + msg.message + "</li>")
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 })

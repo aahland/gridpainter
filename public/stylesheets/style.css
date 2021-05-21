@@ -4,7 +4,9 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     color: #fff;
+    margin: 0;
 }
 
 /* STYLING FOR LOGIN PAGE */
@@ -35,6 +37,12 @@ header {
     margin-bottom: 20px;
 }
 
+#username {
+    border: 1px solid #fff;  
+    border-radius: 5px;
+    padding: 2px;
+}
+
 #colorPicker {
     display: flex;
     flex-direction: row;
@@ -54,24 +62,130 @@ header {
     background-color: black;
 }
 
-
-
 /* STYLING FOR GAME PAGE */
+
+#container {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+#logoArea {
+    width: 100%;
+}
+
+h1 {
+    font-family: 'Finger Paint', cursive;
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+#playersInfo {
+    width: 15vw;
+    margin: 30px;
+    padding: 20px;
+}
 
 h2 {
     font-size: 18px;
 }
 
-#playerName {
-    width: 100%;
-    text-align: center;
-    margin: 20px;
+h3 {
+    font-size: 14px;
 }
 
-#gridPainter {
-    /* border: 1px rgb(255, 255, 255) solid; */
+i {
+    font-size: 20px;
+}
+
+.fa-user {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+hr {
+    border-color: 0.25px solid #fff;  
+    margin: 40px 0px;
+}
+
+#picChat {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;  
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
+}
+
+#pic {
+    width: 100%;
+    height: 60%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(82, 129, 121);
+    text-align: center;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+#chatBox {
+    width: 100%;
+    height: 40%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(82, 129, 121);
+    text-align: center;
+    padding-top: 8px;
+}
+
+#chatDisplay {
     height: 100%;
-    margin-right: 50px;
+    width: 100%;
+    margin-top: 10px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+    background-color: #fff;
+
+}
+
+#messages {
+    list-style: none;
+    padding: 0;
+    color: #000;
+    font-size: 10px;
+}
+
+#messageInput {
+    margin: 1vh;
+    border: 1px solid #fff;  
+    border-radius: 2px;
+}
+
+#chatBox li {
+    text-align: left;
+    background-color: rgba(233, 233, 233, 0.685);
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-top: 5px;
+    margin: 1vh;
+}
+
+#chatBox li p {
+    font-size: 10px;
+    text-align: left;
+}
+
+/* STYLING FOR GRID */
+
+#gridPainter {
+    height: 100%;
+    margin-right: 40px;
     padding: 10px;
     background-color: #fff;
     border-radius: 10px;
@@ -86,30 +200,11 @@ h2 {
 
 /* Boxes of grid */
 #box1 ,#box2 ,#box3 ,#box4 , #box5 ,#box6 ,#box7 ,#box8 ,#box9 , #box10 , #box11 ,#box12 ,#box13 ,#box14 , #box15 , #box16 ,#box17 ,#box18 ,#box19 , #box20 , #box21 ,#box22 ,#box23 ,#box24 , #box25 , #box26 ,#box27 ,#box28 ,#box29 , #box30 , #box31 ,#box32 ,#box33 ,#box34 , #box35, #box36 ,#box37 ,#box38 ,#box39 , #box40, #box41 ,#box42 ,#box43 ,#box44 , #box45, #box46 ,#box47 ,#box48 ,#box49 , #box50 , #box51 ,#box52 ,#box53 ,#box54 , #box55 , #box56 ,#box57 ,#box58 ,#box59 , #box60,#box61 ,#box62 ,#box63 ,#box64 , #box65, #box66 ,#box67 ,#box68 ,#box69 , #box70, #box71 ,#box72 ,#box73 ,#box74 , #box75 , #box76 ,#box77 ,#box78 ,#box79 , #box80 , #box81 ,#box82 ,#box83 ,#box84 , #box85 , #box86 ,#box87 ,#box88 ,#box89 , #box90 , #box91 ,#box92 ,#box93 ,#box94 , #box95 ,#box96 ,#box97 ,#box98 ,#box99 , #box100 , #box101 ,#box102 ,#box103 ,#box104 , #box105 ,#box106 ,#box107 ,#box108 ,#box109 , #box110 , #box111 ,#box112 ,#box113 ,#box114 , #box115 , #box116 ,#box117 ,#box118 ,#box119 , #box120 , #box121 ,#box122 ,#box123 ,#box124 , #box125 , #box126 ,#box127 ,#box128 ,#box129 , #box130 , #box131 ,#box132 ,#box133 ,#box134 , #box135 , #box136 ,#box137 ,#box138 ,#box139 , #box140 , #box141 ,#box142 ,#box143 ,#box144 , #box145 , #box146 ,#box147 ,#box148 ,#box149 , #box150 , #box151 ,#box152 ,#box153 ,#box154 , #box155 ,#box156 ,#box157 ,#box158 ,#box159 , #box160 , #box161 ,#box162 ,#box163 ,#box164 , #box165 , #box166 ,#box167 ,#box168 ,#box169 , #box170 , #box171 ,#box172 ,#box173 ,#box174 , #box175 , #box176 ,#box177 ,#box178 ,#box179 , #box180 , #box181 ,#box182 ,#box183 ,#box184 , #box185, #box186 ,#box187 ,#box188 ,#box189 , #box190, #box191 ,#box192 ,#box193 ,#box194 , #box195, #box196 ,#box197 ,#box198 ,#box199 , #box200 ,#box201 ,#box202 ,#box203 ,#box204 , #box205 ,#box206 ,#box207 ,#box208 ,#box209 , #box210 , #box211 ,#box212 ,#box213 ,#box214 , #box215 , #box216 ,#box217 ,#box218 ,#box219 , #box220 , #box221 ,#box222 ,#box223 ,#box224 , #box225   {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: 1px solid #fff;  
     font-size: 10px;
     color: #000;
-}
-
-#container {
-    display: flex;
-    flex-direction: row;  
-    height: 100%;
-}
-
-#picChat {
-    display: flex;
-    flex-direction: column;  
-    justify-content: space-between;
-}
-
-#pic, #chatBox{
-    width: 500px;
-    height: 250px;
-    border-radius: 15px;
-    text-align: center;
 }
 
 #color {
@@ -141,47 +236,3 @@ h2 {
     background-color: blue;
 }
 
-#chatBox {
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(82, 129, 121);
-    text-align: center;
-    padding-top: 10px;
-}
-
-#chatDisplay {
-    height: 100%;
-    width: 100%;
-    margin-top: 10px;
-    overflow-y: auto;
-    overflow-x: hidden; 
-    background-color: #fff;
-
-}
-
-#messages {
-    list-style: none;
-    padding: 0;
-    color: #000;
-    font-size: 10px;
-}
-
-#messageInput {
-    margin: 2vh;
-}
-
-#chatBox li {
-    text-align: left;
-    background-color: rgba(233, 233, 233, 0.685);
-    border-radius: 15px;
-    padding: 1vh;
-    margin: 1vh;
-    width: 10vw;
-}
-
-#chatBox li p {
-    font-size: larger;
-    /* background-color: white; */
-    padding: 2px;
-    text-align: left;
-}
