@@ -18,11 +18,9 @@ writeMessage.id = "writeMessage";
 messageInput.id = "messageInput";
 messageInput.placeholder = "Write a message";
 sendBtn.id = "sendBtn";
-sendBtn.innerHTML = "SEND";
+sendBtn.innerHTML = "Send";
 
-chatBox.appendChild(writeMessage);
-writeMessage.appendChild(messageInput);
-writeMessage.appendChild(sendBtn);
+
 
 let chatDisplay = document.createElement("div");
 let messages = document.createElement("ul");
@@ -31,6 +29,10 @@ chatDisplay.id = "chatDisplay";
 
 chatBox.appendChild(chatDisplay);
 chatDisplay.appendChild(messages);
+
+chatBox.appendChild(writeMessage);
+writeMessage.appendChild(messageInput);
+writeMessage.appendChild(sendBtn);
 
 
 
@@ -65,7 +67,7 @@ socket.on("chat message", function(msg){
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
     console.log("outgoing message");
     console.log(localStorage.getItem("playerName"), msg);
-    messages.insertAdjacentHTML("beforeend", "<li style='margin-right:16vw'>" + msg.name +":"+ time +"<p style='margin-top:0vh'>"+""+msg.message+"</p></li>")
+    messages.insertAdjacentHTML("beforeend", "<li style='margin-right:16vw'>" + msg.name +" ("+ time +") "+"<p style='margin-top:0vh'> "+""+msg.message+"</p></li>")
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
 
   } else if ((localStorage.getItem("playerName") != msg.name) || (localStorage.getItem("playerColor") != msg.color)) {
@@ -73,7 +75,7 @@ socket.on("chat message", function(msg){
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
   console.log("incoming message");
   console.log(localStorage.getItem("playerName"), msg);
-  messages.insertAdjacentHTML("beforeend", "<li style='margin-left:16vw'>" + msg.name +":"+ time +"<p style='margin-top:0vh'>"+""+msg.message+"</p></li>")
+  messages.insertAdjacentHTML("beforeend", "<li style='margin-left:16vw'>" + msg.name +" ("+ time +") "+"<p style='margin-top:0vh'>"+""+msg.message+"</p></li>")
     chatDisplay.scrollTop = chatDisplay.scrollHeight;
   }
 })
