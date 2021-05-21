@@ -80,7 +80,7 @@ export function gridColoringFunc(){
             document.getElementById(box).style.backgroundColor=playerColor;
             socket.emit("boxColor",positionColor); 
     }   
-    fetch("http://localhost:3000/users/color", {
+    fetch("https://gridpainter3.herokuapp.com/users/color", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export function gridColoringFunc(){
 } 
 // reading data from database for other players to see which box is colored and realtime app 
 
-    fetch("http://localhost:3000/users")
+    fetch("https://gridpainter3.herokuapp.com/users")
     .then(res=>res.json())
     .then(boxes=>{
         for(let box in boxes){
