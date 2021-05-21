@@ -1,4 +1,8 @@
-#gridPainter{
+body {
+    background-color: rgb(161, 224, 203);
+}
+
+#gridPainter {
     border: 2px black solid;
     width: 600px;
     height: 630px;
