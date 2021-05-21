@@ -21,7 +21,6 @@ export default function login () {
         socket.emit('regPlayer', color);
 
         window.location.href = '../game.html';
-        loadGrid();
     })
 
     //
