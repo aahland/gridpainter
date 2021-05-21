@@ -58,7 +58,7 @@ for (i=211;i<=225;i++){
 //showing name of player
 export function ShowPlayerName(){
     // localStorage.setItem("playerName", "Sara");
-    document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h1>Player name:${playerName}</h1>`)
+    document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h2><i class="fas fa-user-edit"></i> ${playerName}</h2>`)
 }
 //function  coloring the grid 
 export function gridColoringFunc(){
