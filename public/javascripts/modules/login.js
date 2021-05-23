@@ -1,4 +1,3 @@
-import loadGrid from './loadGrid.js';
 const socket = io();
 
 // Gets username and color choice and puts into local storage
