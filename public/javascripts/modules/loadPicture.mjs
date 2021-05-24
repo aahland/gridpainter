@@ -8,6 +8,5 @@ export async function fetchPicture () {
         }
 
     });
-return await response.json()
-
+    return await response.json()
 };

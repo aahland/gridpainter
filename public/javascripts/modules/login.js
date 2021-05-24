@@ -16,8 +16,10 @@ export default function login () {
 
         
         //if (timesClicked == 4){
-        socket.on("load game", bool => {
+        socket.on("load game", number => {
             window.location.href = '../game.html';
+            const string = `facit${number}`;
+            localStorage.setItem('picture', string);
         })    
        
 

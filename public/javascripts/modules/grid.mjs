@@ -2,7 +2,7 @@
 
 const socket =io();
 //write  pictures name  to localstorage (after radomise the picture must be deleted)
- localStorage.setItem("picture","facit1")
+//  localStorage.setItem("picture","facit1")
 
 
 //read name and picture from localstorage and get it from localstorage 

@@ -4,6 +4,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 const timesClicked = require("./utils/clicked.js");
+const randomizer = require('./utils/randomizer.js');
 const {
     updateColors,
     regPlayer,
@@ -63,7 +64,8 @@ const io=require("socket.io")(server)
         console.log(clicked);
         let bool = timesClicked();
         if (bool){
-            io.emit("load game", bool);
+            const number = randomizer();
+            io.emit("load game", number);
         }
         
     })
