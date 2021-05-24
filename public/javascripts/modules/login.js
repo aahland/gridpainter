@@ -4,15 +4,15 @@ export default function login () {
     const btn = document.getElementById('loginBtn');
     //let timesClicked = 0;
     btn.addEventListener('click', () => {
-        const username = document.getElementById('username').value;
+        const playerName = document.getElementById('username').value;
         //timesClicked++;
         //console.log(timesClicked);
         btn.remove();
 
 
-        localStorage.setItem('playerName', username);
+        localStorage.setItem('playerName', playerName);
 
-        socket.emit("times clicked", "clicked");
+        socket.emit("times clicked", playerName);
 
         
         //if (timesClicked == 4){

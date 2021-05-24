@@ -11,7 +11,7 @@ let picture=localStorage.getItem("picture")
 
 let serverUrl = "https://gridpainter3.herokuapp.com";
 //https://gridpainter3.herokuapp.com
-//https://gridpainter3.herokuapp.com
+//http://localhost:3000
 
 //function for making grid of facit picture 
  

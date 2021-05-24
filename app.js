@@ -5,6 +5,7 @@ var logger = require('morgan');
 const cors = require('cors');
 const timesClicked = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
+const { pushPlayer, returnPlayers } = require('./utils/playerNames.js');
 const {
     updateColors,
     regPlayer,
@@ -60,8 +61,9 @@ const io=require("socket.io")(server)
         updateColors(color);
     });
 
-    socket.on("times clicked", function(clicked){
-        console.log(clicked);
+    socket.on("times clicked", function(playerName){
+        pushPlayer(playerName);
+        console.log(returnPlayers());
         let bool = timesClicked();
         if (bool){
             const number = randomizer();
