@@ -3,6 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+const timesClicked = require("./utils/clicked.js");
 const {
     updateColors,
     regPlayer,
@@ -57,6 +58,15 @@ const io=require("socket.io")(server)
     socket.on('updateColors', color => {
         updateColors(color);
     });
+
+    socket.on("times clicked", function(clicked){
+        console.log(clicked);
+        let bool = timesClicked();
+        if (bool){
+            io.emit("load game", bool);
+        }
+        
+    })
 })
 
 app.use(cors());
