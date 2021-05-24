@@ -14,6 +14,7 @@ body {
 header {
     width: 100%;
     text-align: center;
+    margin-top: 10vh;
 }
 
 #logo {
@@ -85,7 +86,7 @@ h1 {
 }
 
 #playersInfo {
-    width: 20%;
+    width: 15%;
     margin-right: 20px;
     padding-right: 10px;
 }
@@ -96,6 +97,7 @@ h2 {
 
 h3 {
     font-size: 14px;
+    text-transform: uppercase;
 }
 
 i {
@@ -113,26 +115,26 @@ hr {
 }
 
 #picChat {
-    width: 25vw;
+    width: 25%;
     display: flex;
     flex-direction: column;  
     justify-content: space-between;
     align-items: center;
-    margin-right: 20px;
+    align-content: center;
 }
 
 #pic {
-    width: 100%;
-    height: 60%;
+
     border-radius: 15px;
     display: flex;
     flex-direction: column;
-    background-color: rgb(82, 129, 121);
     text-align: center;
-    padding-top: 10px;
+    justify-content: center;
     margin-bottom: 10px;
     color: #000;
     font-size: 10px;
+    padding: 10px;
+    background-color: #fff;
 }
 
  
@@ -197,30 +199,40 @@ hr {
 }
 
 /* Rows of grid */
+
 #row1 ,#row2 ,#row3 ,#row4 ,#row5 ,#row6 ,#row7 ,#row8 ,#row9 ,#row10,#row11 ,#row12 ,#row13 ,#row14,#row15    {
     display: flex;
     flex-direction:row;   
 }
 
 /* Boxes of grid */
+
 #box1 ,#box2 ,#box3 ,#box4 , #box5 ,#box6 ,#box7 ,#box8 ,#box9 , #box10 , #box11 ,#box12 ,#box13 ,#box14 , #box15 , #box16 ,#box17 ,#box18 ,#box19 , #box20 , #box21 ,#box22 ,#box23 ,#box24 , #box25 , #box26 ,#box27 ,#box28 ,#box29 , #box30 , #box31 ,#box32 ,#box33 ,#box34 , #box35, #box36 ,#box37 ,#box38 ,#box39 , #box40, #box41 ,#box42 ,#box43 ,#box44 , #box45, #box46 ,#box47 ,#box48 ,#box49 , #box50 , #box51 ,#box52 ,#box53 ,#box54 , #box55 , #box56 ,#box57 ,#box58 ,#box59 , #box60,#box61 ,#box62 ,#box63 ,#box64 , #box65, #box66 ,#box67 ,#box68 ,#box69 , #box70, #box71 ,#box72 ,#box73 ,#box74 , #box75 , #box76 ,#box77 ,#box78 ,#box79 , #box80 , #box81 ,#box82 ,#box83 ,#box84 , #box85 , #box86 ,#box87 ,#box88 ,#box89 , #box90 , #box91 ,#box92 ,#box93 ,#box94 , #box95 ,#box96 ,#box97 ,#box98 ,#box99 , #box100 , #box101 ,#box102 ,#box103 ,#box104 , #box105 ,#box106 ,#box107 ,#box108 ,#box109 , #box110 , #box111 ,#box112 ,#box113 ,#box114 , #box115 , #box116 ,#box117 ,#box118 ,#box119 , #box120 , #box121 ,#box122 ,#box123 ,#box124 , #box125 , #box126 ,#box127 ,#box128 ,#box129 , #box130 , #box131 ,#box132 ,#box133 ,#box134 , #box135 , #box136 ,#box137 ,#box138 ,#box139 , #box140 , #box141 ,#box142 ,#box143 ,#box144 , #box145 , #box146 ,#box147 ,#box148 ,#box149 , #box150 , #box151 ,#box152 ,#box153 ,#box154 , #box155 ,#box156 ,#box157 ,#box158 ,#box159 , #box160 , #box161 ,#box162 ,#box163 ,#box164 , #box165 , #box166 ,#box167 ,#box168 ,#box169 , #box170 , #box171 ,#box172 ,#box173 ,#box174 , #box175 , #box176 ,#box177 ,#box178 ,#box179 , #box180 , #box181 ,#box182 ,#box183 ,#box184 , #box185, #box186 ,#box187 ,#box188 ,#box189 , #box190, #box191 ,#box192 ,#box193 ,#box194 , #box195, #box196 ,#box197 ,#box198 ,#box199 , #box200 ,#box201 ,#box202 ,#box203 ,#box204 , #box205 ,#box206 ,#box207 ,#box208 ,#box209 , #box210 , #box211 ,#box212 ,#box213 ,#box214 , #box215 , #box216 ,#box217 ,#box218 ,#box219 , #box220 , #box221 ,#box222 ,#box223 ,#box224 , #box225   {
     width: 40px;
     height: 40px;
     border: 1px solid #fff;  
     font-size: 10px;
-    color: #000;
+    color: transparent; /* Hiding box id/number, change to #000 to show again */
 }
-/* facitRows of picture for coloring in the game  */
+
+/* FacitRows of picture for coloring in the game  */
+
 #facitRow1 ,#facitRow2 ,#facitRow3 ,#facitRow4 ,#facitRow5 ,#facitRow6 ,#facitRow7 ,#facitRow8 ,#facitRow9 ,#facitRow10,#facitRow11 ,#facitRow12 ,#facitRow13 ,#facitRow14,#facitRow15    {
     display: flex;
-    flex-direction:row;   
+    flex-direction: row;  
+    justify-content: center;
 }
-/* facites of grid */
+
+/* Facites of grid */
+
 #facit1 ,#facit2 ,#facit3 ,#facit4 , #facit5 ,#facit6 ,#facit7 ,#facit8 ,#facit9 , #facit10 , #facit11 ,#facit12 ,#facit13 ,#facit14 , #facit15 , #facit16 ,#facit17 ,#facit18 ,#facit19 , #facit20 , #facit21 ,#facit22 ,#facit23 ,#facit24 , #facit25 , #facit26 ,#facit27 ,#facit28 ,#facit29 , #facit30 , #facit31 ,#facit32 ,#facit33 ,#facit34 , #facit35, #facit36 ,#facit37 ,#facit38 ,#facit39 , #facit40, #facit41 ,#facit42 ,#facit43 ,#facit44 , #facit45, #facit46 ,#facit47 ,#facit48 ,#facit49 , #facit50 , #facit51 ,#facit52 ,#facit53 ,#facit54 , #facit55 , #facit56 ,#facit57 ,#facit58 ,#facit59 , #facit60,#facit61 ,#facit62 ,#facit63 ,#facit64 , #facit65, #facit66 ,#facit67 ,#facit68 ,#facit69 , #facit70, #facit71 ,#facit72 ,#facit73 ,#facit74 , #facit75 , #facit76 ,#facit77 ,#facit78 ,#facit79 , #facit80 , #facit81 ,#facit82 ,#facit83 ,#facit84 , #facit85 , #facit86 ,#facit87 ,#facit88 ,#facit89 , #facit90 , #facit91 ,#facit92 ,#facit93 ,#facit94 , #facit95 ,#facit96 ,#facit97 ,#facit98 ,#facit99 , #facit100 , #facit101 ,#facit102 ,#facit103 ,#facit104 , #facit105 ,#facit106 ,#facit107 ,#facit108 ,#facit109 , #facit110 , #facit111 ,#facit112 ,#facit113 ,#facit114 , #facit115 , #facit116 ,#facit117 ,#facit118 ,#facit119 , #facit120 , #facit121 ,#facit122 ,#facit123 ,#facit124 , #facit125 , #facit126 ,#facit127 ,#facit128 ,#facit129 , #facit130 , #facit131 ,#facit132 ,#facit133 ,#facit134 , #facit135 , #facit136 ,#facit137 ,#facit138 ,#facit139 , #facit140 , #facit141 ,#facit142 ,#facit143 ,#facit144 , #facit145 , #facit146 ,#facit147 ,#facit148 ,#facit149 , #facit150 , #facit151 ,#facit152 ,#facit153 ,#facit154 , #facit155 ,#facit156 ,#facit157 ,#facit158 ,#facit159 , #facit160 , #facit161 ,#facit162 ,#facit163 ,#facit164 , #facit165 , #facit166 ,#facit167 ,#facit168 ,#facit169 , #facit170 , #facit171 ,#facit172 ,#facit173 ,#facit174 , #facit175 , #facit176 ,#facit177 ,#facit178 ,#facit179 , #facit180 , #facit181 ,#facit182 ,#facit183 ,#facit184 , #facit185, #facit186 ,#facit187 ,#facit188 ,#facit189 , #facit190, #facit191 ,#facit192 ,#facit193 ,#facit194 , #facit195, #facit196 ,#facit197 ,#facit198 ,#facit199 , #facit200 ,#facit201 ,#facit202 ,#facit203 ,#facit204 , #facit205 ,#facit206 ,#facit207 ,#facit208 ,#facit209 , #facit210 , #facit211 ,#facit212 ,#facit213 ,#facit214 , #facit215 , #facit216 ,#facit217 ,#facit218 ,#facit219 , #facit220 , #facit221 ,#facit222 ,#facit223 ,#facit224 , #facit225   {
-    width:25px;
-    height :25px;
-    border:1px solid rgb(109, 109, 109);  
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid rgb(109, 109, 109);  
+    color: transparent; /* Hiding each box id/number, change to #000 to show again */
 }
+
 #color {
     display: flex;
     flex-direction: row;  

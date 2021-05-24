@@ -135,18 +135,46 @@ export function gridColoringFunc(){
     let box=evt.target.id;
    
     let playerColor=localStorage.getItem("playerColor")
-    let positionColor = {"boxName":box, "boxColor":playerColor};
-    console.log(positionColor);
+    // let positionColor = {"boxName":box, "boxColor":playerColor};
+    // console.log(positionColor);
     
     if(document.getElementById(box).style.backgroundColor.match(playerColor)){
         console.log(playerColor);
         let backColor="white";
         console.log(backColor);
         document.getElementById(box).style.backgroundColor=backColor;
-        socket.emit("boxColor",{"boxName":box, "boxColor":backColor}); 
+        let positionColor = {"boxName":box, "boxColor":backColor};
+        socket.emit("boxColor",positionColor);
+
+        fetch("https://gridpainter3.herokuapp.com/users/color", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(positionColor)
+            })
+            .then(res=>res.json())
+            .then(paint=>{
+            console.log("Status",paint.status);
+            });
     }else{
             document.getElementById(box).style.backgroundColor=playerColor;
+            let positionColor = {"boxName":box, "boxColor":playerColor};
             socket.emit("boxColor",positionColor); 
+
+            fetch("https://gridpainter3.herokuapp.com/users/color", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(positionColor)
+                })
+                .then(res=>res.json())
+                .then(paint=>{
+                console.log("Status",paint.status);
+                }); 
     }   
     fetch(`${serverUrl}/users/color`, {
     method: "POST",
@@ -161,7 +189,7 @@ export function gridColoringFunc(){
     console.log("Status",paint.status);
        
        
-    });     
+    });
 }); 
 } 
 // reading data from database for other players to see which box is colored and realtime app 
