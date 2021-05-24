@@ -31,7 +31,7 @@ export default async function playersInfo(){
 
 
 async function getPlayers () {
-    let url = 'http://localhost:3000/playerNames';
+    let url = 'https://gridpainter3.herokuapp.com/playerNames';
     let response = await fetch(url, {
         method: 'GET',
         headers: {

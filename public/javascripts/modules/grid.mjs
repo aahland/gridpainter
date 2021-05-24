@@ -64,8 +64,8 @@ export function pictureShowFunc(){
     for (i=211;i<=225;i++){
         document.getElementById("facitRow15").insertAdjacentHTML("beforeend",`<div id=facit${i}>${i}<div>`)
     }
-    console.log(`${localUrl}/users/${picture}`);
-    fetch(`${localUrl}/users/${picture}`)
+    console.log(`${serverUrl}/users/${picture}`);
+    fetch(`${serverUrl}/users/${picture}`)
         .then(res=>res.json())
         .then(pics=>{
             console.log("picture",pics);
@@ -177,7 +177,7 @@ export function gridColoringFunc(){
                 console.log("Status",paint.status);
                 }); 
     }   
-    fetch(`${localUrl}/users/color`, {
+    fetch(`${serverUrl}/users/color`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -247,7 +247,7 @@ export function facitFunc(){
         .then(resetedGrid=>{
             let resetGame=resetedGrid;
             console.log("resetGame:",resetGame);
-            fetch(`${localUrl}/users/white`, {
+            fetch(`${serverUrl}/users/white`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
