@@ -1,5 +1,7 @@
 const socket =io();
 
+/*
+
 export default function playersInfo(){
 
     let playersInfo = document.getElementById("playersInfo");
@@ -16,6 +18,15 @@ export default function playersInfo(){
         console.log("green");
     }
 
-    playersInfo.insertAdjacentHTML("afterbegin", `<img src="stylesheets/img/paint.png" width="200"> <h3>Current players</h3> <p><i class="fas fa-user"></i> ${playerName} </p>`);
+    
+
+  
+    for(playerName in playerNames){
+        playersInfo.insertAdjacentHTML("afterbegin", `<img src="stylesheets/img/paint.png" width="200"> <h3>Current players</h3> <p><i class="fas fa-user"></i> ${playerNames[playerName]} </p>`);
+    }
+
+    
 
 }
+
+*/
