@@ -9,6 +9,11 @@ const socket =io();
 let playerName=localStorage.getItem("playerName");
 let picture=localStorage.getItem("picture")
 
+let serverUrl = "https://gridpainter3.herokuapp.com";
+let localUrl="http://localhost:3000"
+//https://gridpainter3.herokuapp.com
+//http://localhost:3000
+
 //function for making grid of facit picture 
  
 export function pictureShowFunc(){
@@ -59,8 +64,8 @@ export function pictureShowFunc(){
     for (i=211;i<=225;i++){
         document.getElementById("facitRow15").insertAdjacentHTML("beforeend",`<div id=facit${i}>${i}<div>`)
     }
-    console.log(`https://gridpainter3.herokuapp.com/users/${picture}`);
-    fetch(`https://gridpainter3.herokuapp.com/users/${picture}`)
+    console.log(`${localUrl}/users/${picture}`);
+    fetch(`${localUrl}/users/${picture}`)
         .then(res=>res.json())
         .then(pics=>{
             console.log("picture",pics);
@@ -131,20 +136,48 @@ export function gridColoringFunc(){
     let box=evt.target.id;
    
     let playerColor=localStorage.getItem("playerColor")
-    let positionColor = {"boxName":box, "boxColor":playerColor};
-    console.log(positionColor);
+    // let positionColor = {"boxName":box, "boxColor":playerColor};
+    // console.log(positionColor);
     
     if(document.getElementById(box).style.backgroundColor.match(playerColor)){
         console.log(playerColor);
         let backColor="white";
         console.log(backColor);
         document.getElementById(box).style.backgroundColor=backColor;
-        socket.emit("boxColor",{"boxName":box, "boxColor":backColor}); 
+        let positionColor = {"boxName":box, "boxColor":backColor};
+        socket.emit("boxColor",positionColor);
+
+        fetch(`${localUrl}/users/color`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(positionColor)
+            })
+            .then(res=>res.json())
+            .then(paint=>{
+            console.log("Status",paint.status);
+            });
     }else{
             document.getElementById(box).style.backgroundColor=playerColor;
+            let positionColor = {"boxName":box, "boxColor":playerColor};
             socket.emit("boxColor",positionColor); 
+
+            fetch(`${localUrl}/users/color`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(positionColor)
+                })
+                .then(res=>res.json())
+                .then(paint=>{
+                console.log("Status",paint.status);
+                }); 
     }   
-    fetch("https://gridpainter3.herokuapp.com/users/color", {
+    fetch(`${localUrl}/users/color`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -157,12 +190,12 @@ export function gridColoringFunc(){
     console.log("Status",paint.status);
        
        
-    });     
+    });
 }); 
 } 
 // reading data from database for other players to see which box is colored and realtime app 
 
-fetch("https://gridpainter3.herokuapp.com/users")
+fetch(`${localUrl}/users`)
 .then(res=>res.json())
 .then(boxes=>{
     for(let box in boxes){
@@ -183,12 +216,12 @@ export function facitFunc(){
     
     document.getElementById("facit").addEventListener("click",function(){
          count=count+1;
-        fetch("https://gridpainter3.herokuapp.com/users")
+        fetch(`${localUrl}/users`)
         .then(res=>res.json())
         .then(finishedGrid=>{
             let gameOver={finishedGrid,picture};
             console.log(gameOver.finishedGrid);
-            fetch("https://gridpainter3.herokuapp.com/users/finish", {
+            fetch(`${localUrl}/users/finish`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -209,12 +242,12 @@ export function facitFunc(){
  //function for reset game with boxes with white color that does not work till now   
  export function deleteGridsColor(){
     document.getElementById("reset").addEventListener("click",function(){
-        fetch("https://gridpainter3.herokuapp.com/users")
+        fetch(`${localUrl}/users`)
         .then(res=>res.json())
         .then(resetedGrid=>{
             let resetGame=resetedGrid;
             console.log("resetGame:",resetGame);
-            fetch("https://gridpainter3.herokuapp.com/users/white", {
+            fetch(`${localUrl}/users/white`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -226,12 +259,9 @@ export function facitFunc(){
             .then(reset=>{
             console.log("Status", reset);
             })   
-        });          
-        })
+        });
+        
+       // window.location.href = '../index.html'; 
+        
+        })     
  }
-
-
-
-   
-
-
