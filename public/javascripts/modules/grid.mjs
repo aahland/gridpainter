@@ -57,8 +57,7 @@ for (i=211;i<=225;i++){
 
 //showing name of player
 export function ShowPlayerName(){
-    // localStorage.setItem("playerName", "Sara");
-    document.getElementById("playerName").insertAdjacentHTML("afterbegin",`<h1>Player name:${playerName}</h1>`)
+    document.getElementById("playersInfo").insertAdjacentHTML("afterbegin",`<img src="stylesheets/img/paint.png" width="200"> <br />Let's play this awesome game! Here's some instructions and maybe some other fancy text.</p> <hr> <h3>CURRENT PLAYERS</h3> <p> <i class="fas fa-user"> </i> ${playerName}</p>`)
 }
 //function  coloring the grid 
 export function gridColoringFunc(){
