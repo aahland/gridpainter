@@ -16,7 +16,13 @@
         <div id="playerColor"></div>
         <ul id="color"></ul><br><br>
 
-        <div id="playersInfo"></div>
+        <div id="playersInfo">
+
+            <button id="facit">Finish game</button>
+            <button id="reset">Reset game</button>
+            
+        </div>
+
         <div id="gridPainter">
             <div id="row1"></div>
             <div id="row2"></div>
@@ -51,13 +57,12 @@
                 <div id="facitRow13"></div>
                 <div id="facitRow14"></div>
                 <div id="facitRow15"></div>
-                <i class="far fa-image"></i></div>
+            </div>
             <div id="chatBox"><i class="far fa-comment-dots"></i>
             </div>
         </div>
    </div>
-   <button id="facit">Finish game</button>
-   <button id="reset">Reset game</button>
+
    <script src="socket.io/socket.io.js"></script>
    <script type="module" src="javascripts/modules/loadGrid.js"></script>
    <script type="module">

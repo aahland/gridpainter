@@ -1,26 +1,39 @@
 import { makeGridFunc ,  gridColoringFunc , facitFunc , pictureShowFunc, deleteGridsColor} from './grid.mjs';
 import {buildChat, sendMessage} from './chat.mjs';
 import storePlayer from './randomColor.js';
+import playersInfo from './playersInfo.mjs';
+
 
 export default function loadGrid () {
     //Selecting color that must be deleted after login section 
     // setColor()
-     //  Make facit picture box
-   pictureShowFunc()
-    //make Grid box 
+
+    // Make facit picture box
+    pictureShowFunc();
+
+    // Display info about current players
+    playersInfo();
+
+    // Make Grid box 
     makeGridFunc();
 
-    // coloring the grid 
+    // Coloring the grid 
     gridColoringFunc();
-//reseting the grid
-deleteGridsColor();
+
+    // Reseting the grid
+    deleteGridsColor();
+
+    // Show chat
     buildChat();
     sendMessage();
 
-//check the game after click on finish button  
-facitFunc()
-
+    //Check the game after click on finish button  
+    facitFunc();
 
     storePlayer();
+
+
+
+
 
 }
