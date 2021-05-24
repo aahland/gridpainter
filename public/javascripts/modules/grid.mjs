@@ -182,7 +182,10 @@ let count=0;
 export function facitFunc(){
     
     document.getElementById("facit").addEventListener("click",function(){
-         count=count+1;
+        count=count+1;
+        let startTime = localStorage.getItem("startTime")
+        console.log(startTime);
+
         fetch("https://gridpainter3.herokuapp.com/users")
         .then(res=>res.json())
         .then(finishedGrid=>{
