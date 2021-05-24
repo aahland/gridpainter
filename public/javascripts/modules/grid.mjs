@@ -240,6 +240,7 @@ export function facitFunc(){
             let showPercent = percent.toFixed(2);
 
             document.getElementById("gridPainter").innerHTML="";
+            confetti();
             document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${game[0].score} and you colored ${showPercent}% correct!</h2>`)
             })   
         }); 
