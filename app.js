@@ -5,7 +5,6 @@ var logger = require('morgan');
 const cors = require('cors');
 const {
     updateColors,
-    sendColors,
     regPlayer,
     removePlayer
 } = require('./utils/colors.js');
@@ -32,9 +31,8 @@ const io=require("socket.io")(server)
     socket.on("disconnect", function(){
         console.log("User disconnected");
         
-        // Removes player and restores player color
+        // Removes player and restores player color to array
         removePlayer(socket.id);
-        io.emit('updateColors', sendColors());
     });
     socket.on("boxColor",function(boxColor){
         console.log("boxColor:",boxColor);
@@ -50,11 +48,14 @@ const io=require("socket.io")(server)
     });
 
     // Adds player and color to array
-    // Updates available player colors for all connected users
     socket.on('regPlayer', color => {
         regPlayer(socket.id, color);
+    });
+
+    // Updates the array with available colors,
+    // removing the provided, chosen player color
+    socket.on('updateColors', color => {
         updateColors(color);
-        io.emit('updateColors', sendColors());
     });
 })
 
