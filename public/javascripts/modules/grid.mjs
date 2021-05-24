@@ -258,10 +258,13 @@ export function facitFunc(){
             .then(res=>res.json())
             .then(reset=>{
             console.log("Status", reset);
+            window.location.reload();
+
             })   
+            window.location.href = '../index.html'; 
+
         });
-        
-       // window.location.href = '../index.html'; 
+       
         
         })     
  }
