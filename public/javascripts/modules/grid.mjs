@@ -221,7 +221,7 @@ export function facitFunc(){
         .then(finishedGrid=>{
             let gameOver={finishedGrid,picture};
             console.log(gameOver.finishedGrid);
-            fetch(`${serverUrl}/users/finish`, {
+            fetch(`${localUrl}/users/finish`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
