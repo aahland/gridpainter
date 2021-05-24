@@ -223,7 +223,7 @@ export function facitFunc(){
         .then(finishedGrid=>{
             let gameOver={finishedGrid,picture};
             console.log(gameOver.finishedGrid);
-            fetch(`${localUrl}/users/finish`, {
+            fetch(`${serverUrl}/users/finish`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -249,7 +249,7 @@ export function facitFunc(){
  //function for reset game with boxes with white color that does not work till now   
  export function deleteGridsColor(){
     document.getElementById("reset").addEventListener("click",function(){
-        fetch("/users")
+        fetch(`${serverUrl}/users`)
         .then(res=>res.json())
         .then(resetedGrid=>{
             let resetGame=resetedGrid;
@@ -265,7 +265,10 @@ export function facitFunc(){
             .then(res=>res.json())
             .then(reset=>{
             console.log("Status", reset);
+            window.location.reload();
+
             })   
+            window.location.href = '../index.html'; 
         });          
         })
  }

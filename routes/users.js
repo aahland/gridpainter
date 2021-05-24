@@ -60,10 +60,10 @@ router.post("/color", function(req, res){
 //rout for makings boxes of grid white that doe not work till now 
 router.post('/white', function(req, res, next) {
   let resetGame=req.body;
-  console.log(resetGame);
+ // console.log(resetGame);
   req.app.locals.db.collection("grid").find( ).toArray()
   .then(resets => {
-    console.log("resetGrid",resetGrid);
+    console.log("resets",resets);
     for (reset in resets){
        req.app.locals.db.collection("grid").updateOne( {"boxName" : resets[reset].boxName}, {$set: {"boxColor": "white"}})
       .then(result=>{
