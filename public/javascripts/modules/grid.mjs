@@ -164,7 +164,7 @@ export function gridColoringFunc(){
             let positionColor = {"boxName":box, "boxColor":playerColor};
             socket.emit("boxColor",positionColor); 
 
-            fetch(´` ${serverUrl}/users/color`, {
+            fetch(`${serverUrl}/users/color`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
