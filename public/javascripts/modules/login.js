@@ -6,6 +6,9 @@ export default function login () {
 
         localStorage.setItem('playerName', username);
 
+        let startTime = new Date();
+        localStorage.setItem('startTime', startTime);
+
         window.location.href = '../game.html';
     })
 }
