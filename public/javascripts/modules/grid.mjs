@@ -64,8 +64,8 @@ export function pictureShowFunc(){
     for (i=211;i<=225;i++){
         document.getElementById("facitRow15").insertAdjacentHTML("beforeend",`<div id=facit${i}>${i}<div>`)
     }
-    console.log(`${serverUrl}/users/${picture}`);
-    fetch(`${serverUrl}/users/${picture}`)
+    console.log(`${localUrl}/users/${picture}`);
+    fetch(`${localUrl}/users/${picture}`)
         .then(res=>res.json())
         .then(pics=>{
             console.log("picture",pics);
@@ -177,7 +177,7 @@ export function gridColoringFunc(){
                 console.log("Status",paint.status);
                 }); 
     }   
-    fetch(`${serverUrl}/users/color`, {
+    fetch(`${localUrl}/users/color`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
@@ -221,7 +221,7 @@ export function facitFunc(){
         .then(finishedGrid=>{
             let gameOver={finishedGrid,picture};
             console.log(gameOver.finishedGrid);
-            fetch(`${serverUrl}/users/finish`, {
+            fetch(`${localUrl}/users/finish`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -247,7 +247,7 @@ export function facitFunc(){
         .then(resetedGrid=>{
             let resetGame=resetedGrid;
             console.log("resetGame:",resetGame);
-            fetch(`${serverUrl}/users/white`, {
+            fetch(`${localUrl}/users/white`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

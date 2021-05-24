@@ -2,7 +2,7 @@ const socket = io();
 
 // Fetch function for recieving available random color
 async function getColor () {
-    let url = 'https://gridpainter3.herokuapp.com/getColor';
+    let url = 'http://localhost:3000/getColor';
     let response = await fetch(url, {
         method: 'GET',
         headers: {
