@@ -1,5 +1,11 @@
-let colors = ['red', 'yellow', 'green', 'blue'];
+let colors = ['red', 'green', 'blue', 'yellow'];
 let players = [];
+
+// Sends back a random color of the ones available
+function randomColor () {
+    const i = Math.floor(Math.random() * colors.length);
+    return { color: colors[i] };
+}
 
 // Adds or removes input color from array depending on if it's already present or not
 function updateColors (color) {
@@ -12,11 +18,6 @@ function updateColors (color) {
 
     colors.push(color);
     return false;
-}
-
-// Sends available colors without changing array
-function sendColors () {
-    return colors;
 }
 
 // Registers player with socket id and color
@@ -45,4 +46,4 @@ function removePlayer (socket) {
     return false;
 }
 
-module.exports = { updateColors, sendColors, removePlayer, regPlayer };
+module.exports = { randomColor, updateColors, regPlayer, removePlayer };
