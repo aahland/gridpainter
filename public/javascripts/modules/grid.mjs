@@ -210,7 +210,9 @@ socket.on("boxColor",function(boxColor){
 // document.getElementById(selectedColor.color).style.display="none" 
 // })
 
+
 //checking game and calculating score 
+
 let count=0;
 export function facitFunc(){
     
@@ -232,9 +234,13 @@ export function facitFunc(){
             .then(res=>res.json())
             .then(game=>{
             console.log("Score", game[0].score);
-            console.log("Percent:",game[1].percent);
+            console.log("Percent:", game[1].percent);
+
+            let percent = game[1].percent;
+            let showPercent = percent.toFixed(2);
+
             document.getElementById("gridPainter").innerHTML="";
-            document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h1> Score is ${game[0].score} and you colored ${game[1].percent}% correct<h1>`)
+            document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${game[0].score} and you colored ${showPercent}% correct!</h2>`)
             })   
         }); 
     })
