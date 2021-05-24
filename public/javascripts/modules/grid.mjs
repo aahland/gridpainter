@@ -10,6 +10,7 @@ let playerName=localStorage.getItem("playerName");
 let picture=localStorage.getItem("picture")
 
 let serverUrl = "https://gridpainter3.herokuapp.com";
+let localUrl="http://localhost:3000"
 //https://gridpainter3.herokuapp.com
 //http://localhost:3000
 
@@ -146,7 +147,7 @@ export function gridColoringFunc(){
         let positionColor = {"boxName":box, "boxColor":backColor};
         socket.emit("boxColor",positionColor);
 
-        fetch("https://gridpainter3.herokuapp.com/users/color", {
+        fetch(`${serverUrl}/users/color`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -163,7 +164,7 @@ export function gridColoringFunc(){
             let positionColor = {"boxName":box, "boxColor":playerColor};
             socket.emit("boxColor",positionColor); 
 
-            fetch("https://gridpainter3.herokuapp.com/users/color", {
+            fetch(´` ${serverUrl}/users/color`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
