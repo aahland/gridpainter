@@ -17,7 +17,7 @@ var usersRouter = require('./routes/users');
 
  var app = express();
 const MongoClient=require("mongodb").MongoClient;
-MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.w88ba.mongodb.net/db?retryWrites=true&w=majority",{
+MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.3gyio.mongodb.net/db?retryWrites=true&w=majority",{
     useUnifiedTopology:true 
 })
 
