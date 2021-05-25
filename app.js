@@ -53,6 +53,8 @@ const io=require("socket.io")(server)
     // Adds player and color to array
     socket.on('regPlayer', color => {
         regPlayer(socket.id, color);
+        io.emit("playerColor", color);
+        console.log("User with id: " + socket.id + " has color: " + color);
     });
 
     // Updates the array with available colors,
