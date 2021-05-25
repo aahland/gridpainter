@@ -5,11 +5,12 @@ var logger = require('morgan');
 const cors = require('cors');
 const timesClicked = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
-const { pushPlayer, returnPlayers } = require('./utils/playerNames.js');
+const { pushPlayer } = require('./utils/playerNames.js');
 const {
     updateColors,
     regPlayer,
-    removePlayer
+    removePlayer,
+    returnPlayers
 } = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
@@ -51,10 +52,11 @@ const io=require("socket.io")(server)
     });
 
     // Adds player and color to array
-    socket.on('regPlayer', color => {
-        regPlayer(socket.id, color);
-        io.emit("playerColor", color);
-        console.log("User with id: " + socket.id + " has color: " + color);
+    socket.on('regPlayer', data => {
+        console.log(data);
+        regPlayer(data.playerName, data.color);
+        io.emit("playerColor", data.color);
+        console.log("User with id: " + socket.id + " has color: " + data.color);
     });
 
     // Updates the array with available colors,
@@ -72,6 +74,12 @@ const io=require("socket.io")(server)
             io.emit("load game", number);
         }
         
+    })
+
+    socket.on('getPlayers', function () {
+        let array = returnPlayers();
+        console.log(array);
+        io.emit('getPlayers', array)
     })
 })
 

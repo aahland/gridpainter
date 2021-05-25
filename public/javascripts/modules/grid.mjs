@@ -9,7 +9,7 @@ const socket =io();
 let playerName=localStorage.getItem("playerName");
 let picture=localStorage.getItem("picture")
 
-let serverUrl = "https://gridpainter3.herokuapp.com";
+let serverUrl = "http://localhost:3000";
 let localUrl="http://localhost:3000"
 //https://gridpainter3.herokuapp.com
 //http://localhost:3000

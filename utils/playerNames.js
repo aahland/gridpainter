@@ -8,4 +8,4 @@ function returnPlayers () {
     return playerNames;
 }
 
-module.exports = { pushPlayer, returnPlayers };
+module.exports = { pushPlayer };

@@ -12,9 +12,6 @@ export default function loadGrid () {
     // Make facit picture box
     pictureShowFunc();
 
-    // Display info about current players
-    playersInfo();
-
     // Make Grid box 
     makeGridFunc();
 
@@ -36,7 +33,8 @@ export default function loadGrid () {
     //Timer function
     timer();
 
-
+    // Display info about current players
+    playersInfo();
 
 
 }

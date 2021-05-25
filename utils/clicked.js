@@ -1,4 +1,4 @@
-let loginClicked = 0;
+let loginClicked = 2;
 
 function timesClicked(){
     loginClicked++
