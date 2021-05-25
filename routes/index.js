@@ -10,7 +10,8 @@ router.get('/getColor', function (req, res) {
 })
 
 router.get('/playerNames', function(req, res){
-    let array = returnPlayers();
+    
+    array = returnPlayers();
     res.send(array)
 } )
 

@@ -81,6 +81,15 @@ const io=require("socket.io")(server)
                 console.log("finish game" , bool);
             }
     });
+    socket.on("delete user", function(playerName){
+        console.log("hej from delete user");
+        popPlayer(playerName);
+        let players=returnPlayers()
+        console.log("players after delete user ",returnPlayers());
+        io.emit("delete user" , players)
+                
+         
+    });
 })
 
 app.use(cors());
