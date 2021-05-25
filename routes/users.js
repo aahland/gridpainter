@@ -40,12 +40,12 @@ router.get('/facit5', function(req, res, next) {
 })
 router.post("/color", function(req, res){
   let findBox=req.body;
-  console.log("find box from post in backend:",findBox);
+  //console.log("find box from post in backend:",findBox);
   let newColor=findBox.boxColor;
   console.log("new color :",newColor);
   req.app.locals.db.collection("grid").find( {"boxName":findBox.boxName} ).toArray()
   .then(coloredBox => {
-    console.log("coloredBox",coloredBox);
+    //console.log("coloredBox",coloredBox);
     //req.app.locals.db.collection("grid").insertOne(req.body)
     //req.app.locals.db.collection("grid").deleteOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
     req.app.locals.db.collection("grid").updateOne( {"boxName" : coloredBox[0].boxName}, {$set: {"boxColor": newColor}})
@@ -63,7 +63,7 @@ router.post('/white', function(req, res, next) {
  // console.log(resetGame);
   req.app.locals.db.collection("grid").find( ).toArray()
   .then(resets => {
-    console.log("resets",resets);
+    //console.log("resets",resets);
     for (reset in resets){
        req.app.locals.db.collection("grid").updateOne( {"boxName" : resets[reset].boxName}, {$set: {"boxColor": "white"}})
       .then(result=>{
@@ -77,7 +77,7 @@ router.post('/white', function(req, res, next) {
 })
 router.post("/finish", function(req, res){
   let gameOvered=req.body;
-  console.log("gameOvered from post in backend:",gameOvered);
+  //console.log("gameOvered from post in backend:",gameOvered);
  // console.log(gamedOvered.picture);
   req.app.locals.db.collection(gameOvered.picture).find().toArray()
   .then(checkGame => {

@@ -1,5 +1,5 @@
 let loginClicked = 0;
-
+let finishClicked=0;
 function timesClicked(){
     loginClicked++
     if (loginClicked >= 4){
@@ -9,5 +9,14 @@ function timesClicked(){
         return false;
     }
 }
+function finishTimesClicked(){
+    finishClicked++
+    if (finishClicked >= 4){
+        finishClicked = 0;
+        return true;
+    } else {
+        return false;
+    }
+}
 
-module.exports = timesClicked;
+module.exports = {timesClicked,finishTimesClicked};
