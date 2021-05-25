@@ -3,9 +3,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
-const timesClicked = require("./utils/clicked.js");
+const {timesClicked,finishTimesClicked} = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
-const { pushPlayer, returnPlayers } = require('./utils/playerNames.js');
+const { pushPlayer,popPlayer, returnPlayers } = require('./utils/playerNames.js');
 const {
     updateColors,
     regPlayer,
@@ -71,6 +71,16 @@ const io=require("socket.io")(server)
         }
         
     })
+    socket.on("finish clicked", function(playerName){
+        //console.log("finish socket",playerName);
+        popPlayer(playerName);
+        console.log("players after finish ",returnPlayers());
+        let bool = finishTimesClicked();
+            if (bool){
+                io.emit("finish game" , bool)
+                console.log("finish game" , bool);
+            }
+    });
 })
 
 app.use(cors());

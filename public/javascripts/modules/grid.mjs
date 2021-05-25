@@ -9,8 +9,8 @@ const socket =io();
 let playerName=localStorage.getItem("playerName");
 let picture=localStorage.getItem("picture")
 
-let serverUrl = "https://gridpainter3.herokuapp.com";
-let localUrl="http://localhost:3000"
+let serverUrl = "http://localhost:3000";
+//let localUrl="http://localhost:3000"
 //https://gridpainter3.herokuapp.com
 //http://localhost:3000
 
@@ -235,17 +235,34 @@ export function facitFunc(){
             .then(game=>{
             console.log("Score", game[0].score);
             console.log("Percent:", game[1].percent);
-
+            let score=game[0].score;
             let percent = game[1].percent;
             let showPercent = percent.toFixed(2);
 
-            document.getElementById("gridPainter").innerHTML="";
-            confetti();
-            document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${game[0].score} and you colored ${showPercent}% correct!</h2>`)
+            document.getElementById("facit").style.display="none"
+            
+            socket.emit("finish clicked", playerName);
+            
+            socket.on("finish game",function(bool){
+                console.log(bool);
+                displayScore(score,showPercent)
+                
+            })
             })   
         }); 
     })
 }
+//function for display result
+export function displayScore(score, percent ){
+    confetti();
+    document.getElementById("gridPainter").innerHTML="";
+    document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${score} and you colored ${percent}% correct!</h2>`)
+}
+
+
+
+
+
  //function for reset game with boxes with white color that does not work till now   
  export function deleteGridsColor(){
     document.getElementById("reset").addEventListener("click",function(){
