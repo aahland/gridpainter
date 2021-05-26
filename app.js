@@ -75,10 +75,12 @@ const io=require("socket.io")(server)
         // pushPlayer(player);
         // //console.log(returnPlayers());
         let data = timesClicked();
+        socket.emit('recieveColor', data.clicked);
+
         if (data.bool){
             emptyArray();
             const number = randomizer();
-            io.emit("load game", { number: number, colorNumber: colorNumber });
+            io.emit("load game", number);
         }
         
     });

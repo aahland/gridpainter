@@ -13,30 +13,33 @@ export default function login () {
         localStorage.setItem('playerName', playerName);
 
         socket.emit("times clicked");
-
-        
-        //if (timesClicked == 4){
-        socket.on("load game", data => {
-            window.location.href = '../game.html';
-            const string = `facit${data.number}`;
-            localStorage.setItem('picture', string);
-            switch (data.colorNumber) {
+        socket.on('recieveColor', number => {
+            console.log('Number from server: ' + number);
+            switch (number) {
                 case 1:
-                    localStorage.setItem('color', 'red');
+                    localStorage.setItem('playerColor', 'red');
                     break;
                 case 2:
-                    localStorage.setItem('color', 'green');
+                    localStorage.setItem('playerColor', 'green');
                     break;
                 case 3:
-                    localStorage.setItem('color', 'blue');
+                    localStorage.setItem('playerColor', 'blue');
                     break;
                 case 4:
-                    localStorage.setItem('color', 'yellow');
+                    localStorage.setItem('playerColor', 'yellow');
                     break;
                 default:
-                    localStorage.setItem('color', 'white');
+                    localStorage.setItem('playerColor', 'white');
                     break;
             }
+        })
+        
+        //if (timesClicked == 4){
+        socket.on("load game", number => {
+            window.location.href = '../game.html';
+            console.log(number);
+            const string = `facit${number}`;
+            localStorage.setItem('picture', string);
         })    
        
 

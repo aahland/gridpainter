@@ -1,14 +1,18 @@
 let loginClicked = 0;
 let finishClicked=0;
 function timesClicked(){
+    let data = {};
     loginClicked++
     if (loginClicked >= 4){
+        data = { bool: true, clicked: loginClicked }
         loginClicked = 0;
-        return { bool: true, clicked: loginClicked };
     } else {
-        return false;
+        data = { bool: false, clicked: loginClicked };
     }
+
+    return data;
 }
+
 function finishTimesClicked(){
     finishClicked++
     if (finishClicked >= 4){

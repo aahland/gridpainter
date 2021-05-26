@@ -18,7 +18,7 @@ async function getColor () {
 }
 
 export default async function storePlayer () {
-    const color = localStorage.getItem('color');
+    const color = localStorage.getItem('playerColor');
 
     // localStorage.setItem('playerColor', color);
     const playerName = localStorage.getItem('playerName');
