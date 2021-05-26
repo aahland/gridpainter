@@ -257,7 +257,9 @@ export function displayScore(score, percent ){
     confetti();
     document.getElementById("gridPainter").style.display="block"
     document.getElementById("gridPainter").innerHTML="";
-    document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${score} and you colored ${percent}% correct!</h2>`)
+    let timerSlot = document.getElementById("timer");
+    let time = timerSlot.innerHTML;
+    document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${score} and you colored ${percent}% correct in ${time}!</h2>`)
 }
 
 
