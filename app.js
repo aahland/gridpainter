@@ -5,12 +5,13 @@ var logger = require('morgan');
 const cors = require('cors');
 const {timesClicked,finishTimesClicked} = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
-const { pushPlayer,popPlayer} = require('./utils/playerNames.js');
 const {
     updateColors,
     regPlayer,
     removePlayer, 
-    returnPlayers
+    returnPlayers,
+    pushPlayer,
+    popPlayer
 } = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
@@ -65,9 +66,13 @@ const io=require("socket.io")(server)
         updateColors(color);
     });
 
-    socket.on("times clicked", function(playerName){
-        pushPlayer(playerName);
-        //console.log(returnPlayers());
+    socket.on("times clicked") {
+        // const player = {
+        //     playerName: playerName,
+        //     color: color
+        // }
+        // pushPlayer(player);
+        // //console.log(returnPlayers());
         let bool = timesClicked();
         if (bool){
             const number = randomizer();

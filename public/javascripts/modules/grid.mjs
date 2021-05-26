@@ -294,7 +294,7 @@ export function displayScore(score, percent ){
                 
                 
             // })
-            window.location.href = '../index.html'; 
+            window.location.href = '../index.html';
         });          
         })
  }

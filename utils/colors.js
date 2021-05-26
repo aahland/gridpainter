@@ -50,4 +50,16 @@ function returnPlayers () {
     return players;
 }
 
-module.exports = { randomColor, updateColors, regPlayer, removePlayer, returnPlayers };
+function pushPlayer (player) {
+    players.push(player);
+}
+
+function popPlayer (playerName) {
+    for (let player in players) {
+        if (players[player].playerName == playerName) {
+            players[player].pop()
+        }
+    }
+}
+
+module.exports = { randomColor, updateColors, regPlayer, removePlayer, returnPlayers, popPlayer, pushPlayer };

@@ -12,7 +12,7 @@ export default function login () {
 
         localStorage.setItem('playerName', playerName);
 
-        socket.emit("times clicked", playerName);
+        socket.emit("times clicked");
 
         
         //if (timesClicked == 4){
