@@ -239,7 +239,8 @@ export function facitFunc(){
             let showPercent = percent.toFixed(2);
 
             document.getElementById("facit").style.display="none"
-            
+            document.getElementById("gridPainter").innerHTML="";
+            document.getElementById("gridPainter").insertAdjacentHTML("afterbegin","waiting for other players ...")
             socket.emit("finish clicked", playerName);
             
             socket.on("finish game",function(bool){
@@ -254,6 +255,7 @@ export function facitFunc(){
 //function for display result
 export function displayScore(score, percent ){
     confetti();
+    document.getElementById("gridPainter").style.display="block"
     document.getElementById("gridPainter").innerHTML="";
     document.getElementById("gridPainter").insertAdjacentHTML("afterbegin",`<h2> Your score is ${score} and you colored ${percent}% correct!</h2>`)
 }
