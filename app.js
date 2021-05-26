@@ -66,7 +66,7 @@ const io=require("socket.io")(server)
 
     socket.on("times clicked", function(playerName){
         pushPlayer(playerName);
-        console.log(returnPlayers());
+        //console.log(returnPlayers());
         let bool = timesClicked();
         if (bool){
             const number = randomizer();
