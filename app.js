@@ -74,11 +74,11 @@ const io=require("socket.io")(server)
         // }
         // pushPlayer(player);
         // //console.log(returnPlayers());
-        let bool = timesClicked();
-        if (bool){
+        let data = timesClicked();
+        if (data.bool){
             emptyArray();
             const number = randomizer();
-            io.emit("load game", number);
+            io.emit("load game", { number: number, colorNumber: colorNumber });
         }
         
     });

@@ -18,12 +18,12 @@ async function getColor () {
 }
 
 export default async function storePlayer () {
-    const color = await getColor();
+    const color = localStorage.getItem('color');
 
-    localStorage.setItem('playerColor', color.color);
+    // localStorage.setItem('playerColor', color);
     const playerName = localStorage.getItem('playerName');
-    let data = { playerName: playerName, color: color.color };
-    socket.emit('updateColors', color.color);
+    let data = { playerName: playerName, color: color };
+    // socket.emit('updateColors', color.color);
     socket.emit('regPlayer', data);
     playersInfo();
 }

@@ -4,7 +4,7 @@ function timesClicked(){
     loginClicked++
     if (loginClicked >= 4){
         loginClicked = 0;
-        return true;
+        return { bool: true, clicked: loginClicked };
     } else {
         return false;
     }

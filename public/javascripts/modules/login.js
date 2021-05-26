@@ -16,10 +16,27 @@ export default function login () {
 
         
         //if (timesClicked == 4){
-        socket.on("load game", number => {
+        socket.on("load game", data => {
             window.location.href = '../game.html';
-            const string = `facit${number}`;
+            const string = `facit${data.number}`;
             localStorage.setItem('picture', string);
+            switch (data.colorNumber) {
+                case 1:
+                    localStorage.setItem('color', 'red');
+                    break;
+                case 2:
+                    localStorage.setItem('color', 'green');
+                    break;
+                case 3:
+                    localStorage.setItem('color', 'blue');
+                    break;
+                case 4:
+                    localStorage.setItem('color', 'yellow');
+                    break;
+                default:
+                    localStorage.setItem('color', 'white');
+                    break;
+            }
         })    
        
 
