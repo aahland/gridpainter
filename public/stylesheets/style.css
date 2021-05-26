@@ -118,13 +118,8 @@ i {
 }
 
 .fa-user {
-    font-size: 14px;
+    font-size: 20px;
     margin-right: 10px;
-}
-
-hr {
-    border-color: 0.25px solid #fff;  
-    margin: 40px 0px;
 }
 
 #picChat {
@@ -273,5 +268,21 @@ hr {
 
 #blue, #color-blue {
     background-color: blue;
+}
+
+.icon-red {
+    color: red;
+}
+
+.icon-green {
+    color: green;
+}
+
+.icon-yellow {
+    color: yellow;
+}
+
+.icon-blue {
+    color: blue;
 }
 

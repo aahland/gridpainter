@@ -21,9 +21,9 @@ function updateColors (color) {
 }
 
 // Registers player with socket id and color
-function regPlayer (socket, color) {
+function regPlayer (playerName, color) {
     players.push({
-        socket: socket,
+        playerName: playerName,
         color: color
     })
     console.log(players);
@@ -46,4 +46,8 @@ function removePlayer (socket) {
     return false;
 }
 
-module.exports = { randomColor, updateColors, regPlayer, removePlayer };
+function returnPlayers () {
+    return players;
+}
+
+module.exports = { randomColor, updateColors, regPlayer, removePlayer, returnPlayers };

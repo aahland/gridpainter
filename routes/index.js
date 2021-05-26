@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const { returnPlayers } = require('../utils/playerNames.js');
 const { randomColor } = require('../utils/colors.js');
 
 // Gets available colors from colors array
@@ -14,5 +13,10 @@ router.get('/playerNames', function(req, res){
     array = returnPlayers();
     res.send(array)
 } )
+// router.get('/playerNames', function(req, res){
+//     let array = returnPlayers();
+//     let data = { data: array };
+//     res.send(data);
+// } )
 
 module.exports = router;
