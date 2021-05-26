@@ -8,6 +8,7 @@ export default function login () {
         //timesClicked++;
         //console.log(timesClicked);
         btn.remove();
+        document.getElementById("waitingText").insertAdjacentHTML("beforebegin", "Waiting for other players to join the game before redirecting..");
 
 
         localStorage.setItem('playerName', playerName);
