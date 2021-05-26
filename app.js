@@ -5,7 +5,7 @@ var logger = require('morgan');
 const cors = require('cors');
 const {timesClicked,finishTimesClicked} = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
-const { pushPlayer,popPlayer, returnPlayers } = require('./utils/playerNames.js');
+const { pushPlayer,popPlayer} = require('./utils/playerNames.js');
 const {
     updateColors,
     regPlayer,
