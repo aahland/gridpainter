@@ -57,7 +57,7 @@ function pushPlayer (player) {
 function popPlayer (playerName) {
     for (let player in players) {
         if (players[player].playerName == playerName) {
-            players[player].pop()
+            players.pop(player)
         }
     }
 }

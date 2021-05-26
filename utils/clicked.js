@@ -1,9 +1,9 @@
-let loginClicked = 0;
-let finishClicked=0;
+let loginClicked = 2;
+let finishClicked=2;
 function timesClicked(){
     loginClicked++
     if (loginClicked >= 4){
-        loginClicked = 0;
+        loginClicked = 2;
         return true;
     } else {
         return false;
@@ -12,7 +12,7 @@ function timesClicked(){
 function finishTimesClicked(){
     finishClicked++
     if (finishClicked >= 4){
-        finishClicked = 0;
+        finishClicked = 2;
         return true;
     } else {
         return false;
