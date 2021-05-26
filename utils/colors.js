@@ -7,6 +7,10 @@ function randomColor () {
     return { color: colors[i] };
 }
 
+function emptyArray () {
+    players = [];
+}
+
 // Adds or removes input color from array depending on if it's already present or not
 function updateColors (color) {
     for (let i in colors) {
@@ -62,4 +66,4 @@ function popPlayer (playerName) {
     }
 }
 
-module.exports = { randomColor, updateColors, regPlayer, removePlayer, returnPlayers, popPlayer, pushPlayer };
+module.exports = { randomColor, updateColors, regPlayer, removePlayer, returnPlayers, popPlayer, pushPlayer, emptyArray };

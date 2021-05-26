@@ -11,7 +11,8 @@ const {
     removePlayer, 
     returnPlayers,
     pushPlayer,
-    popPlayer
+    popPlayer,
+    emptyArray
 } = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
@@ -75,6 +76,7 @@ const io=require("socket.io")(server)
         // //console.log(returnPlayers());
         let bool = timesClicked();
         if (bool){
+            emptyArray();
             const number = randomizer();
             io.emit("load game", number);
         }
