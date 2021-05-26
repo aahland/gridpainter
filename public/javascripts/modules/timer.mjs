@@ -12,7 +12,8 @@ export default function timer(){
         };
         if(seconds < 10){
             seconds = "0"+seconds;
-        };
+        }
+
 
         // console.log(minute + ":" + seconds);
         let timerSlot = document.getElementById("timer");
@@ -22,5 +23,6 @@ export default function timer(){
             clearInterval(timer);
             alert ("Too slow! GAME OVER!")
         }
+        
     }
 };
