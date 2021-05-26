@@ -5,16 +5,11 @@ var logger = require('morgan');
 const cors = require('cors');
 const {timesClicked,finishTimesClicked} = require("./utils/clicked.js");
 const randomizer = require('./utils/randomizer.js');
-<<<<<<< HEAD
 const { pushPlayer,popPlayer, returnPlayers } = require('./utils/playerNames.js');
-=======
-const { pushPlayer } = require('./utils/playerNames.js');
->>>>>>> playerColorTrash
 const {
     updateColors,
     regPlayer,
-    removePlayer,
-    returnPlayers
+    removePlayer
 } = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
