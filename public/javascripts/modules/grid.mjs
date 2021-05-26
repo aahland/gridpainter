@@ -296,7 +296,7 @@ export function displayScore(score, percent ){
             // })
             setTimeout(function(){
             window.location.href = '../index.html'; 
-        }, 3000);
+        }, 10000);
         });          
         })
  }
