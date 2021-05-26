@@ -239,6 +239,7 @@ export function facitFunc(){
             let showPercent = percent.toFixed(2);
 
             document.getElementById("timer").style.display="none";
+            document.getElementById("instructions").style.display="none";
             document.getElementById("facit").style.display="none";
             document.getElementById("gridPainter").innerHTML="";
             document.getElementById("gridPainter").insertAdjacentHTML("afterbegin", "Waiting for other players to finish game...")

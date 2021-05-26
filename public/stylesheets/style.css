@@ -88,10 +88,14 @@ h1 {
 #leftDiv {
     display: flex;
     flex-wrap: wrap;
-    width: 20%;
+    width: 15%;
     flex-direction: column;  
-    justify-content: space-between;
-    padding-bottom: 20%;
+    margin-right: 10px;
+}
+
+#instructions {
+    width: 80%;
+    text-align: center;
 }
 
 #playersInfo {
@@ -102,7 +106,9 @@ h1 {
 
 #buttonDiv {
     width: 100%;
+    margin-top: 10px;
 }
+
 
 h2 {
     font-size: 18px;
@@ -123,16 +129,15 @@ i {
 }
 
 #picChat {
-    width: 25%;
+    height: 100vh;
     display: flex;
     flex-direction: column;  
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
 }
 
 #pic {
-
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -144,7 +149,6 @@ i {
     padding: 10px;
     background-color: #fff;
 }
-
  
 #chatBox {
     width: 100%;
@@ -164,7 +168,6 @@ i {
     overflow-y: auto;
     overflow-x: hidden; 
     background-color: #fff;
-
 }
 
 #messages {
