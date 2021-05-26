@@ -12,7 +12,7 @@ export default async function displayColors () {
 
 // Fetch function for recieving available color array
 async function getColors () {
-    let url = 'https://gridpainter3.herokuapp.com/pickColor';
+    let url = 'http://localhost:3000/pickColor';
     let response = await fetch(url, {
         method: 'GET',
         headers: {

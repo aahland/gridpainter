@@ -14,7 +14,7 @@ router.get('/playerNames', function(req, res){
     res.send(array)
 } )
 // router.get('/playerNames', function(req, res){
-//     let array = returnPlayers();
+//     let array = ();
 //     let data = { data: array };
 //     res.send(data);
 // } )
