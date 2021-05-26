@@ -9,7 +9,8 @@ const { pushPlayer,popPlayer, returnPlayers } = require('./utils/playerNames.js'
 const {
     updateColors,
     regPlayer,
-    removePlayer
+    removePlayer, 
+    returnPlayers
 } = require('./utils/colors.js');
 
 var indexRouter = require('./routes/index');
@@ -77,7 +78,7 @@ const io=require("socket.io")(server)
     socket.on("finish clicked", function(playerName){
         //console.log("finish socket",playerName);
         popPlayer(playerName);
-        console.log("players after finish ",returnPlayers());
+        //console.log("players after finish ",returnPlayers());
         let bool = finishTimesClicked();
             if (bool){
                 io.emit("finish game" , bool)
