@@ -88,9 +88,9 @@ const io=require("socket.io")(server)
     socket.on("delete user", function(playerName){
         console.log("hej from delete user");
         popPlayer(playerName);
-        //let players=returnPlayers()
+        let playersDetails=returnPlayers()
         //console.log("players after delete user ",returnPlayers());
-        //io.emit("delete user" , players)
+        io.emit("delete user" , playersDetails)
     });
 
     socket.on('getPlayers', function () {

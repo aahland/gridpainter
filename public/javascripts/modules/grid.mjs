@@ -289,14 +289,16 @@ export function displayScore(score, percent ){
             })  
             socket.emit("delete user", playerName);
             
-            // socket.on("delete user",function(players){
-            //     console.log("players from delete user",players);
+            socket.on("delete user",function(playersDetails){
+                console.log("players from delete user",playersDetails);
+
+
                 
                 
-            // })
-            setTimeout(function(){
+             })
+           
             window.location.href = '../index.html'; 
-        }, 10000);
+        
         });          
         })
  }
