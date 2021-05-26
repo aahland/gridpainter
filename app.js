@@ -66,7 +66,7 @@ const io=require("socket.io")(server)
         updateColors(color);
     });
 
-    socket.on("times clicked") {
+    socket.on("times clicked", function () {
         // const player = {
         //     playerName: playerName,
         //     color: color
@@ -79,7 +79,7 @@ const io=require("socket.io")(server)
             io.emit("load game", number);
         }
         
-    })
+    });
     socket.on("finish clicked", function(playerName){
         //console.log("finish socket",playerName);
         popPlayer(playerName);
