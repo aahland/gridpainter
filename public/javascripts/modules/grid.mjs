@@ -1,5 +1,4 @@
 
-
 const socket =io();
 //write  pictures name  to localstorage (after radomise the picture must be deleted)
 //  localStorage.setItem("picture","facit1")
@@ -283,8 +282,16 @@ export function displayScore(score, percent ){
             .then(reset=>{
             console.log("Status", reset);
             window.location.reload();
+            
 
-            })   
+            })  
+            socket.emit("delete user", playerName);
+            
+            socket.on("delete user",function(players){
+                console.log("players from delete user",players);
+                
+                
+            })
             window.location.href = '../index.html'; 
         });          
         })

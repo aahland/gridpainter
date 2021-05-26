@@ -17,7 +17,7 @@ var usersRouter = require('./routes/users');
 
  var app = express();
 const MongoClient=require("mongodb").MongoClient;
-MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.w88ba.mongodb.net/db?retryWrites=true&w=majority",{
+MongoClient.connect("mongodb+srv://Grid:Nikan1392@cluster0.3gyio.mongodb.net/db?retryWrites=true&w=majority",{
     useUnifiedTopology:true 
 })
 
@@ -80,6 +80,15 @@ const io=require("socket.io")(server)
                 io.emit("finish game" , bool)
                 console.log("finish game" , bool);
             }
+    });
+    socket.on("delete user", function(playerName){
+        console.log("hej from delete user");
+        popPlayer(playerName);
+        let players=returnPlayers()
+        console.log("players after delete user ",returnPlayers());
+        io.emit("delete user" , players)
+                
+         
     });
 })
 

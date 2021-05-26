@@ -8,6 +8,7 @@ function popPlayer (playerName) {
 }
 
 function returnPlayers () {
+  
     return playerNames;
 }
 
