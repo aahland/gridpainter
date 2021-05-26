@@ -1,7 +1,6 @@
 import { makeGridFunc ,  gridColoringFunc , facitFunc , pictureShowFunc, deleteGridsColor} from './grid.mjs';
 import {buildChat, sendMessage} from './chat.mjs';
-import storePlayer from './randomColor.js';
-import playersInfo from './playersInfo.mjs';
+// import playersInfo from './playersInfo.mjs';
 import timer from './timer.mjs';
 
 
@@ -27,14 +26,12 @@ export default function loadGrid () {
 
     //Check the game after click on finish button  
     facitFunc();
-
-    storePlayer();
     
     //Timer function
     timer();
 
-    // Display info about current players
-    playersInfo();
+    // // Display info about current players
+    // playersInfo();
 
 
 }
