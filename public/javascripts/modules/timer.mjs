@@ -15,6 +15,12 @@ export default function timer(){
         };
 
         // console.log(minute + ":" + seconds);
-        document.getElementById("timer").innerHTML = minute + ":" + seconds;
+        let timerSlot = document.getElementById("timer");
+        timerSlot.innerHTML = minute + ":" + seconds;
+        
+        if (timerSlot.innerHTML == "05:00") {
+            clearInterval(timer);
+            alert ("Too slow! GAME OVER!")
+        }
     }
 };
