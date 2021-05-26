@@ -9,6 +9,7 @@ function randomColor () {
 
 function emptyArray () {
     players = [];
+    color = ['red', 'green', 'blue', 'yellow'];
 }
 
 // Adds or removes input color from array depending on if it's already present or not
