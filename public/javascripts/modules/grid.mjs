@@ -287,7 +287,7 @@ export function displayScore(score, percent ){
             .then(reset=>{
             console.log("Status", reset);
             window.location.reload();
-            
+            window.location.href = '../index.html'; 
 
             })  
             socket.emit("delete user", playerName);
@@ -300,7 +300,7 @@ export function displayScore(score, percent ){
                 
              })
            
-            window.location.href = '../index.html'; 
+           
         
         });          
         })
