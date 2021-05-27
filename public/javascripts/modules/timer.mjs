@@ -1,5 +1,5 @@
-//import finishTimesClicked from './utils/clicked.js';
-const finishTimesClicked = require("./utils/clicked.js");
+import finishTimesClicked from './utils/clicked.js';
+//const finishTimesClicked = require("./utils/clicked.js");
 
 
 
