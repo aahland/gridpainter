@@ -216,7 +216,14 @@ let count=0;
 export function facitFunc(){
     
     document.getElementById("facit").addEventListener("click",function(){
-         
+        document.getElementById("timer").style.display="none";
+        document.getElementById("instructions").style.display="none";
+        document.getElementById("facit").style.display="none";
+        document.getElementById("gridPainter").innerHTML="";
+        document.getElementById("gridPainter").insertAdjacentHTML("afterbegin", "Waiting for other players to finish game...");
+        socket.emit("finish clicked", playerName);
+        
+        socket.on("finish game",function(bool){
         fetch(`${serverUrl}/users`)
         .then(res=>res.json())
         .then(finishedGrid=>{
@@ -237,15 +244,6 @@ export function facitFunc(){
             let score=game[0].score;
             let percent = game[1].percent;
             let showPercent = percent.toFixed(2);
-
-            document.getElementById("timer").style.display="none";
-            document.getElementById("instructions").style.display="none";
-            document.getElementById("facit").style.display="none";
-            document.getElementById("gridPainter").innerHTML="";
-            document.getElementById("gridPainter").insertAdjacentHTML("afterbegin", "Waiting for other players to finish game...")
-            socket.emit("finish clicked", playerName);
-            
-            socket.on("finish game",function(bool){
                 console.log(bool);
                 displayScore(score,showPercent)
                 
