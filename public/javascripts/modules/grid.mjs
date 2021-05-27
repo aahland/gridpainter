@@ -216,7 +216,7 @@ let count=0;
 export function facitFunc(){
     
     document.getElementById("facit").addEventListener("click",function(){
-         count=count+1;
+        socket.on("finish game",function(bool){
         fetch(`${serverUrl}/users`)
         .then(res=>res.json())
         .then(finishedGrid=>{
@@ -245,7 +245,7 @@ export function facitFunc(){
             document.getElementById("gridPainter").insertAdjacentHTML("afterbegin", "Waiting for other players to finish game...")
             socket.emit("finish clicked", playerName);
             
-            socket.on("finish game",function(bool){
+           
                 console.log(bool);
                 displayScore(score,showPercent)
                 
