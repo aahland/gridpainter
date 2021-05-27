@@ -32,7 +32,7 @@ function playersInfo () {
     let playersInfo = document.getElementById("playersInfo");
     let leftDiv = document.getElementById("leftDiv");
 
-    leftDiv.insertAdjacentHTML("afterbegin", `<img src="stylesheets/img/paint.png" width="200"><h4 id="instructions">Paint the grid with your color like the image to the right and click “finish game” when you’re all done!</h4> <br /><h3>Current players</h3>`)
+    leftDiv.insertAdjacentHTML("afterbegin", `<img src="stylesheets/img/paint.png" width="200"><h4 id="instructions">Paint the grid with your color like the image to the right and click “finish game” when you’re all done! <br /><br /> The game ends after five minutes, so don't be too slow :)</h4><h3>Current players</h3>`)
 
     socket.emit('getPlayers');
     socket.on('getPlayers', data => {

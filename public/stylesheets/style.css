@@ -119,12 +119,20 @@ h3 {
     text-transform: uppercase;
 }
 
+h4 {
+    font-size: 13px;
+}
+
+img {
+    margin-bottom: 0px;
+}
+
 i {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .fa-user {
-    font-size: 20px;
+    font-size: 18px;
     margin-right: 10px;
 }
 
