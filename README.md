@@ -36,8 +36,9 @@ Our front-end javascript is built with modules, run from the login page and game
 To run the project on your own computer, follow these instructions:
 1. Download the project from github
 2. Install the neccessary modules with `npm i`
-3. If nodemon is not installed, install it globally with `npm i -g nodemon`
-4. Replace the content of the `serverURL` variable in public/javascripts/modules/grid.js with `http://localhost:3000`
-5. Search for `https://gridpainter3.herokuapp.com` in the project and replace with `http://localhost:3000`
-6. Run `nodemon start` in the terminal
-7. Navigate to `http://localhost:3000` in four instances of Google Chrome or Mozilla Firefox
+3. Open code with Visual Studio and install and allow Prettier extension 
+4. If nodemon is not installed, install it globally with `npm i -g nodemon`
+5. Replace the content of the `serverURL` variable in public/javascripts/modules/grid.js with `http://localhost:3000`
+6. Search for `https://gridpainter3.herokuapp.com` in the project and replace with `http://localhost:3000`
+7. Run `nodemon start` in the terminal
+8. Navigate to `http://localhost:3000` in four instances of Google Chrome or Mozilla Firefox
