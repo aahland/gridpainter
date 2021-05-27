@@ -22,7 +22,7 @@ export default function timer(){
         let timerSlot = document.getElementById("timer");
         timerSlot.innerHTML = minute + ":" + seconds;
         
-        if (timerSlot.innerHTML == "00:20") {
+        if (timerSlot.innerHTML == "05:00") {
             clearInterval(timer);
             if (timerSlot.style.display != "none")
             alert ("Too slow! GAME OVER!")
