@@ -13,8 +13,7 @@ export default function timer() {
     if (seconds < 10) {
       seconds = "0" + seconds;
     }
-
-    // console.log(minute + ":" + seconds);
+   
     let timerSlot = document.getElementById("timer");
     timerSlot.innerHTML = minute + ":" + seconds;
 

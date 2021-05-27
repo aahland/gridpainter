@@ -6,7 +6,7 @@ export default function login() {
   btn.addEventListener("click", () => {
     const playerName = document.getElementById("username").value;
     //timesClicked++;
-    //console.log(timesClicked);
+  
     btn.remove();
     document
       .getElementById("waitingText")
@@ -19,7 +19,6 @@ export default function login() {
 
     socket.emit("times clicked");
     socket.on("recieveColor", (number) => {
-      console.log("Number from server: " + number);
       switch (number) {
         case 1:
           localStorage.setItem("playerColor", "red");
@@ -39,14 +38,11 @@ export default function login() {
       }
     });
 
-    //if (timesClicked == 4){
     socket.on("load game", (number) => {
       window.location.href = "../game.html";
-      console.log(number);
       const string = `facit${number}`;
       localStorage.setItem("picture", string);
     });
 
-    //}
   });
 }

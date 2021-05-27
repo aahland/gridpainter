@@ -6,14 +6,11 @@ import {
   deleteGridsColor,
 } from "./grid.mjs";
 import { buildChat, sendMessage } from "./chat.mjs";
-// import playersInfo from './playersInfo.mjs';
 import timer from "./timer.mjs";
 
 export default function loadGrid() {
-  //Selecting color that must be deleted after login section
-  // setColor()
 
-  // Make facit picture box
+ // Make facit picture box
   pictureShowFunc();
 
   // Make Grid box
@@ -35,6 +32,5 @@ export default function loadGrid() {
   //Timer function
   timer();
 
-  // // Display info about current players
-  // playersInfo();
+ 
 }

@@ -3,10 +3,7 @@ const socket = io();
 export function buildChat() {
   let name = localStorage.getItem("playerName");
   let color = localStorage.getItem("playerColor");
-
   let chatBox = document.getElementById("chatBox");
-  //let chatBoxDynamic = document.createElement("div");
-
   let writeMessage = document.createElement("form");
   let messageInput = document.createElement("input");
   let sendBtn = document.createElement("button");
@@ -15,7 +12,6 @@ export function buildChat() {
   messageInput.placeholder = "Write a message";
   sendBtn.id = "sendBtn";
   sendBtn.innerHTML = "Send";
-
   let chatDisplay = document.createElement("div");
   let messages = document.createElement("ul");
   messages.id = "messages";
@@ -38,8 +34,7 @@ export function sendMessage() {
     e.preventDefault();
 
     if ((messageInput.value, playerName)) {
-      console.log(messageInput.value);
-      socket.emit("chat message", {
+         socket.emit("chat message", {
         name: playerName,
         message: messageInput.value,
         color: playerColor,
@@ -57,8 +52,7 @@ socket.on("chat message", function (msg) {
   ) {
     let timestamp = new Date();
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
-    console.log("outgoing message");
-    console.log(localStorage.getItem("playerName"), msg);
+    
     messages.insertAdjacentHTML(
       "beforeend",
       "<li style='margin-right:10vw'>" +
@@ -76,8 +70,7 @@ socket.on("chat message", function (msg) {
   ) {
     let timestamp = new Date();
     let time = timestamp.getHours() + ":" + timestamp.getMinutes();
-    console.log("incoming message");
-    console.log(localStorage.getItem("playerName"), msg);
+   
     messages.insertAdjacentHTML(
       "beforeend",
       "<li style='margin-left:10vw'>" +

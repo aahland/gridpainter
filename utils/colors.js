@@ -31,7 +31,7 @@ function regPlayer(playerName, color) {
     playerName: playerName,
     color: color,
   });
-  console.log(players);
+
 }
 
 // Removes player using disconnected socket id, and updates colors for other clients
@@ -40,14 +40,11 @@ function removePlayer(socket) {
     if (players[player].socket === socket) {
       const color = players[player].color;
       players.splice(player, 1);
-      console.log("Match!");
-      updateColors(color);
-      console.log(players);
-      return true;
+       updateColors(color);
+       return true;
     }
   }
 
-  console.log("Ej match!");
   return false;
 }
 

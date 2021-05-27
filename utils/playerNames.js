@@ -7,8 +7,4 @@ function popPlayer(playerName) {
   playerNames.pop(playerName);
 }
 
-// function returnPlayers () {
-//     return playerNames;
-// }
-
 module.exports = { pushPlayer, popPlayer };

@@ -1,6 +1,4 @@
 const socket = io();
-//write  pictures name  to localstorage (after radomise the picture must be deleted)
-//  localStorage.setItem("picture","facit1")
 
 //read name and picture from localstorage and get it from localstorage
 let playerName = localStorage.getItem("playerName");
@@ -91,12 +89,11 @@ export function pictureShowFunc() {
       .getElementById("facitRow15")
       .insertAdjacentHTML("beforeend", `<div id=facit${i}>${i}<div>`);
   }
-  console.log(`${serverUrl}/users/${picture}`);
+
   fetch(`${serverUrl}/users/${picture}`)
     .then((res) => res.json())
     .then((pics) => {
-      console.log("picture", pics);
-      for (let i = 1; i <= 225; i++) {
+            for (let i = 1; i <= 225; i++) {
         document.getElementById(`facit${i}`).style.backgroundColor =
           pics[i - 1].boxColor;
       }
@@ -189,19 +186,16 @@ export function gridColoringFunc() {
   document
     .getElementById("gridPainter")
     .addEventListener("click", function (evt) {
-      console.log(evt.target.id);
+      
       let box = evt.target.id;
 
       let playerColor = localStorage.getItem("playerColor");
-      // let positionColor = {"boxName":box, "boxColor":playerColor};
-      // console.log(positionColor);
-
+   
       if (
         document.getElementById(box).style.backgroundColor.match(playerColor)
       ) {
-        console.log(playerColor);
+       
         let backColor = "white";
-        console.log(backColor);
         document.getElementById(box).style.backgroundColor = backColor;
         let positionColor = { boxName: box, boxColor: backColor };
         socket.emit("boxColor", positionColor);
@@ -216,7 +210,7 @@ export function gridColoringFunc() {
         })
           .then((res) => res.json())
           .then((paint) => {
-            console.log("Status", paint.status);
+            
           });
       } else {
         document.getElementById(box).style.backgroundColor = playerColor;
@@ -233,8 +227,7 @@ export function gridColoringFunc() {
         })
           .then((res) => res.json())
           .then((paint) => {
-            console.log("Status", paint.status);
-          });
+         });
       }
       fetch(`${serverUrl}/users/color`, {
         method: "POST",
@@ -246,8 +239,7 @@ export function gridColoringFunc() {
       })
         .then((res) => res.json())
         .then((paint) => {
-          console.log("Status", paint.status);
-        });
+         });
     });
 }
 // reading data from database for other players to see which box is colored and realtime app
@@ -261,13 +253,10 @@ fetch(`${serverUrl}/users`)
     }
   });
 socket.on("boxColor", function (boxColor) {
-  console.log("boxColor from socket.io:", boxColor);
   document.getElementById(boxColor.boxName).style.backgroundColor =
     boxColor.boxColor;
 });
-// socket.on("selectedColor",function(selectedColor){
-// document.getElementById(selectedColor.color).style.display="none"
-// })
+
 
 //checking game and calculating score
 
@@ -291,7 +280,7 @@ export function facitFunc() {
         .then((res) => res.json())
         .then((finishedGrid) => {
           let gameOver = { finishedGrid, picture };
-          console.log(gameOver.finishedGrid);
+         
           fetch(`${serverUrl}/users/finish`, {
             method: "POST",
             headers: {
@@ -302,12 +291,10 @@ export function facitFunc() {
           })
             .then((res) => res.json())
             .then((game) => {
-              console.log("Score", game[0].score);
-              console.log("Percent:", game[1].percent);
+             
               let score = game[0].score;
               let percent = game[1].percent;
               let showPercent = percent.toFixed(2);
-              console.log(bool);
               displayScore(score, showPercent);
             });
         });
@@ -336,7 +323,6 @@ export function deleteGridsColor() {
       .then((res) => res.json())
       .then((resetedGrid) => {
         let resetGame = resetedGrid;
-        console.log("resetGame:", resetGame);
         fetch(`${serverUrl}/users/white`, {
           method: "POST",
           headers: {
@@ -347,14 +333,13 @@ export function deleteGridsColor() {
         })
           .then((res) => res.json())
           .then((reset) => {
-            console.log("Status", reset);
             window.location.reload();
             window.location.href = "../index.html";
           });
         socket.emit("delete user", playerName);
 
         socket.on("delete user", function (playersDetails) {
-          console.log("players from delete user", playersDetails);
+       
         });
       });
   });

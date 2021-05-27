@@ -27,7 +27,7 @@ MongoClient.connect(
   }
 )
 .then((client) => {
-  console.log("Database  is conected");
+
   const db = client.db("db");
   app.locals.db = db;
 });
@@ -35,32 +35,28 @@ const server = require("http").Server(app);
 const io = require("socket.io")(server);
 //listen on every connection
 io.on("connection", (socket) => {
-  console.log("User connected!");
+ 
   socket.on("disconnect", function () {
-    console.log("User disconnected");
-
+    
     // Removes player and restores player color to array
     removePlayer(socket.id);
   });
   socket.on("boxColor", function (boxColor) {
-    console.log("boxColor:", boxColor);
-    io.emit("boxColor", boxColor);
+        io.emit("boxColor", boxColor);
   });
   socket.on("selectedColor", function (selectedColor) {
-    console.log("selectedColor:", selectedColor);
-    io.emit("selectedColor", selectedColor);
+      io.emit("selectedColor", selectedColor);
   });
   socket.on("chat message", function (msg) {
-    console.log("msg", msg);
-    io.emit("chat message", msg);
+        io.emit("chat message", msg);
   });
 
   // Adds player and color to array
   socket.on("regPlayer", (data) => {
-    console.log(data);
+    
     regPlayer(data.playerName, data.color);
     io.emit("playerColor", data.color);
-    console.log("User with id: " + socket.id + " has color: " + data.color);
+   
   });
 
   // Updates the array with available colors,
@@ -70,12 +66,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("times clicked", function () {
-    // const player = {
-    //     playerName: playerName,
-    //     color: color
-    // }
-    // pushPlayer(player);
-    // //console.log(returnPlayers());
+    
     let data = timesClicked();
     socket.emit("recieveColor", data.clicked);
 
@@ -86,26 +77,21 @@ io.on("connection", (socket) => {
     }
   });
   socket.on("finish clicked", function (playerName) {
-    //console.log("finish socket",playerName);
     popPlayer(playerName);
-    //console.log("players after finish ",returnPlayers());
     let bool = finishTimesClicked();
     if (bool) {
       io.emit("finish game", bool);
-      console.log("finish game", bool);
-    }
+         }
   });
   socket.on("delete user", function (playerName) {
-    console.log("hej from delete user");
+   
     popPlayer(playerName);
     let playersDetails = returnPlayers();
-    //console.log("players after delete user ",returnPlayers());
     io.emit("delete user", playersDetails);
   });
 
   socket.on("getPlayers", function () {
     let array = returnPlayers();
-    console.log(array);
     io.emit("getPlayers", array);
   });
 });
