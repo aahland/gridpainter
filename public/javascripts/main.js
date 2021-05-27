@@ -1,3 +1,3 @@
-import login from './modules/login.js';
+import login from "./modules/login.js";
 
 login();

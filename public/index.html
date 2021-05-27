@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid Painter Login</title>
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script type="module" src="javascripts/main.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Poppins&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header>
-        <h1 id="logo">Grid Painter</h1>
-        <img src="stylesheets/img/paint.png" width="250">
+      <h1 id="logo">Grid Painter</h1>
+      <img src="stylesheets/img/paint.png" width="250" />
     </header>
     <main>
-        <div id="loginWrapper">
-            <div id="usernameWrapper" class="login-box">
-                <label for="username">Enter your username: <br /></label>
-                <input type="text" name="username" id="username" placeholder="Username" />
-            </div>
-
-            <button id="loginBtn">Play game</button>
-            <div id="waitingText"></div>
+      <div id="loginWrapper">
+        <div id="usernameWrapper" class="login-box">
+          <label for="username">Enter your username: <br /></label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+          />
         </div>
+
+        <button id="loginBtn">Play game</button>
+        <div id="waitingText"></div>
+      </div>
     </main>
     <script src="socket.io/socket.io.js"></script>
-</body>
+  </body>
 </html>

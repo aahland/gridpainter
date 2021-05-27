@@ -1,80 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid Painter</title>
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="https://kit.fontawesome.com/43ef3c525d.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <script
+      src="https://kit.fontawesome.com/43ef3c525d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="container">
-        <div id="playerColor"></div>
-        <ul id="color"></ul><br><br>
+      <div id="playerColor"></div>
+      <ul id="color"></ul>
+      <br /><br />
 
-        <div id="leftDiv">
+      <div id="leftDiv">
+        <div id="playersInfo"></div>
 
-            <div id="playersInfo"></div>
-
-            <div id="buttonDiv">
-                <button id="facit">Finish game</button>
-                <button id="reset">Play again</button>
-                <p id="timer"></p>
-            </div>
+        <div id="buttonDiv">
+          <button id="facit">Finish game</button>
+          <button id="reset">Play again</button>
+          <p id="timer"></p>
         </div>
+      </div>
 
-        <div id="gridPainter">
-            <div id="row1"></div>
-            <div id="row2"></div>
-            <div id="row3"></div>
-            <div id="row4"></div>
-            <div id="row5"></div>
-            <div id="row6"></div>
-            <div id="row7"></div>
-            <div id="row8"></div>
-            <div id="row9"></div>
-            <div id="row10"></div>
-            <div id="row11"></div>
-            <div id="row12"></div>
-            <div id="row13"></div>
-            <div id="row14"></div>
-            <div id="row15"></div>
+      <div id="gridPainter">
+        <div id="row1"></div>
+        <div id="row2"></div>
+        <div id="row3"></div>
+        <div id="row4"></div>
+        <div id="row5"></div>
+        <div id="row6"></div>
+        <div id="row7"></div>
+        <div id="row8"></div>
+        <div id="row9"></div>
+        <div id="row10"></div>
+        <div id="row11"></div>
+        <div id="row12"></div>
+        <div id="row13"></div>
+        <div id="row14"></div>
+        <div id="row15"></div>
+      </div>
+      <div id="picChat">
+        <div id="pic">
+          <div id="facitRow1"></div>
+          <div id="facitRow2"></div>
+          <div id="facitRow3"></div>
+          <div id="facitRow4"></div>
+          <div id="facitRow5"></div>
+          <div id="facitRow6"></div>
+          <div id="facitRow7"></div>
+          <div id="facitRow8"></div>
+          <div id="facitRow9"></div>
+          <div id="facitRow10"></div>
+          <div id="facitRow11"></div>
+          <div id="facitRow12"></div>
+          <div id="facitRow13"></div>
+          <div id="facitRow14"></div>
+          <div id="facitRow15"></div>
         </div>
-        <div id="picChat">
-            <div id="pic">
-                <div id="facitRow1"></div>
-                <div id="facitRow2"></div>
-                <div id="facitRow3"></div>
-                <div id="facitRow4"></div>
-                <div id="facitRow5"></div>
-                <div id="facitRow6"></div>
-                <div id="facitRow7"></div>
-                <div id="facitRow8"></div>
-                <div id="facitRow9"></div>
-                <div id="facitRow10"></div>
-                <div id="facitRow11"></div>
-                <div id="facitRow12"></div>
-                <div id="facitRow13"></div>
-                <div id="facitRow14"></div>
-                <div id="facitRow15"></div>
-            </div>
-            <div id="chatBox"><i class="far fa-comment-dots"></i>
-            </div>
-        </div>
-   </div>
+        <div id="chatBox"><i class="far fa-comment-dots"></i></div>
+      </div>
+    </div>
 
-   <script src="socket.io/socket.io.js"></script>
-   <script type="module" src="javascripts/modules/loadGrid.js"></script>
-   <script type="module">
-   import loadGrid from './javascripts/modules/loadGrid.js';
-   import storePlayer from './javascripts/modules/randomColor.js';
-   loadGrid();
-   storePlayer();
-   </script>
-</body>
+    <script src="socket.io/socket.io.js"></script>
+    <script type="module" src="javascripts/modules/loadGrid.js"></script>
+    <script type="module">
+      import loadGrid from "./javascripts/modules/loadGrid.js";
+      import storePlayer from "./javascripts/modules/randomColor.js";
+      loadGrid();
+      storePlayer();
+    </script>
+  </body>
 </html>
